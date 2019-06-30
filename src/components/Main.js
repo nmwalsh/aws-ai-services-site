@@ -10,7 +10,7 @@ class Main extends Component {
                         <div className="row">
                             <div className="col-xs-3 offset-1">
                                 <a href="https://aws.amazon.com/machine-learning/ai-services/" target="_blank" rel="noopener noreferrer">
-                                    <img src={require('../images/aws_logo.png')}  />
+                                    <img src={require('../images/aws_logo.png')}  alt="AWS Logo" />
                                 </a>
                             </div>
                             <div className="col-xs-4 offset-1">
