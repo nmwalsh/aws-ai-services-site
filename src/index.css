@@ -7,28 +7,21 @@ light navy: #232F3E
 dark navy: #161E2D
 */
 
+.container{
+  padding-top:50px;
+}
+
 .hero {
-  margin-top:75px;
+  margin-top:25px;
   margin-bottom: 50px;
 }
 
-/*
-.hero-image {
-  background-image: url("/images/dot-texture.png");
-  width: 100%;
-  height: 100%;
-  position: 0px 0px;
-  background-size: cover;
-  position: absolute;
-  z-index:-1;
-}
-*/
 .bg-pattern {
   background-image: url("images/dot-texture.png");
   background-repeat: no-repeat;
   position: absolute;
   /*background-size: 100% 900px;*/
-  height:2000px;
+  height:1200px;
   width:30%;
   top:0px;
   left:70%;
@@ -124,5 +117,8 @@ p {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-    /* test */
+}
+
+.td, tr{
+  color:white;
 }
