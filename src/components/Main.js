@@ -70,7 +70,7 @@ class Main extends Component {
                                         <div class="emptybar"></div>
                                         <div class="filledbar"></div>
                                     </div>
-                                    <p className="card-text">The easy-to-use Rekognition API allows you to automatically identify objects, people, text, scenes, and activities, as well as detect any inappropriate content. Developers can quickly build a searchable content library to optimize media workflows, enrich recommendation engines by extracting text in images, or integrate secondary authentication into existing applications to enhance end-user security.</p>
+                                    <p className="card-text">Amazon Rekognition allows you to automatically identify objects, people, text, scenes, and activities, in images and videos. Available for batch and streaming.</p>
                                     <a href="/rekognition" className="btn btn-info">Try Rekognition</a>
                                 </div>
                             </div>
@@ -81,7 +81,7 @@ class Main extends Component {
                                         <div class="emptybar"></div>
                                         <div class="filledbar"></div>
                                     </div>
-                                    <p className="card-text">Amazon Translate is a neural machine translation service that delivers fast, high-quality, and affordable language translation. Neural machine translation is a form of language translation automation that uses deep learning models to deliver more accurate and more natural sounding translation than traditional statistical and rule-based translation algorithms.</p>
+                                    <p className="card-text">Amazon Translate is a neural machine translation service that delivers fast, high-quality, and affordable language to language translation.</p>
                                     <a href="/translate" className="btn btn-info">Try Translate</a>
                                 </div>
                             </div>
@@ -92,8 +92,8 @@ class Main extends Component {
                                         <div class="emptybar"></div>
                                         <div class="filledbar"></div>
                                     </div>
-                                    <p className="card-text">TBD</p>
-                                    <a href="/translate" className="btn btn-info">Try Forecast</a>
+                                    <p className="card-text">Amazon Forecast is a fully managed service that uses machine learning to deliver highly accurate forecasts and predictions for time-series data.</p>
+                                    <a href="/forecast" className="btn btn-info">Try Forecast</a>
                                 </div>
                             </div>
                             <div className="card">
@@ -103,8 +103,8 @@ class Main extends Component {
                                         <div class="emptybar"></div>
                                         <div class="filledbar"></div>
                                     </div>
-                                    <p className="card-text">TBD</p>
-                                    <a href="/translate" className="btn btn-info">Try Textract</a>
+                                    <p className="card-text">Amazon Textract is a service that automatically extracts text and data from scanned documents, going beyond simple optical character recognition (OCR) to also identify the contents of fields in forms and information stored in tables.</p>
+                                    <a href="/textract" className="btn btn-info">Try Textract</a>
                                 </div>
                             </div>
                             <div className="card">
@@ -114,8 +114,8 @@ class Main extends Component {
                                         <div class="emptybar"></div>
                                         <div class="filledbar"></div>
                                     </div>
-                                    <p className="card-text">TBD</p>
-                                    <a href="/translate" className="btn btn-info">Try Personalize</a>
+                                    <p className="card-text">Amazon Personalize is a machine learning service that makes it easy for developers to leverage their historical data to create individualized recommendations for customers using their applications.</p>
+                                    <a href="/personalize" className="btn btn-info">Try Personalize</a>
                                 </div>
                             </div>
                             <div className="card">
@@ -125,8 +125,8 @@ class Main extends Component {
                                         <div class="emptybar"></div>
                                         <div class="filledbar"></div>
                                     </div>
-                                    <p className="card-text">TBD</p>
-                                    <a href="/translate" className="btn btn-info">Try Lex</a>
+                                    <p className="card-text">Amazon Lex is a service for building conversational interfaces using voice and text. Lex is based on the same technology that powers Amazon Alexa, enabling you to quickly and easily build sophisticated, natural language and conversational bots.</p>
+                                    <a href="/lex" className="btn btn-info">Try Lex</a>
                                 </div>
                             </div>
                     </div>
