@@ -12,6 +12,7 @@ dark navy: #161E2D
   margin-bottom: 50px;
 }
 
+/*
 .hero-image {
   background-image: url("/images/dot-texture.png");
   width: 100%;
@@ -21,13 +22,14 @@ dark navy: #161E2D
   position: absolute;
   z-index:-1;
 }
-
+*/
 .bg-pattern {
   background-image: url("images/dot-texture.png");
+  background-repeat: no-repeat;
   position: absolute;
-  height:1600px;
-  width:60%;
-  scale: 0.1;
+  /*background-size: 100% 900px;*/
+  height:2000px;
+  width:30%;
   top:0px;
   left:70%;
   opacity: 0.5;
