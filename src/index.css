@@ -21,7 +21,7 @@ dark navy: #161E2D
   background-repeat: no-repeat;
   position: absolute;
   /*background-size: 100% 900px;*/
-  height:1200px;
+  height:100%;
   width:30%;
   top:0px;
   left:70%;
@@ -44,7 +44,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h5 {
+h1, h2, h3, h4, h5 {
   color: white;
 }
 
@@ -107,6 +107,7 @@ p {
   color: white;
   background-color:transparent;
   border-color:#FF9900;
+  margin-right: 15px;
 }
 
 .btn-info:hover {
@@ -121,4 +122,20 @@ code {
 
 .td, tr{
   color:white;
+}
+
+.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
+
+.footer {
+  left:0px;
+  bottom:0px;
+  margin-top:75px;
+  height:0px;
+  width:100%;
+  color:red;
+  background:#161E2D;
+}
+
+.footer p{
+  color:gray;
 }

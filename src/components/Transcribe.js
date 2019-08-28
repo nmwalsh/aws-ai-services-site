@@ -201,7 +201,19 @@ class Transcribe extends Component {
         }
         return (
         <div className="container">
-         <h1>Amazon Transcribe</h1>
+         <div className="row">
+            <h1>Amazon Transcribe</h1>
+            <div class="filledbar"></div>
+            <br></br>
+            <p>Amazon Transcribe uses advanced machine learning technologies to recognize speech in audio files and transcribe them into text. You can use Amazon Transcribe to convert audio to text and to create applications that incorporate the content of audio files. For example, you can transcribe the audio track from a video recording to create closed captioning for the video.</p>
+            <br></br>
+            <p>In this example, we're going to show how easy it is to record audio, upload it to <code>Amazon S3</code>, and use <code>Amazon Transcribe</code> to perform a transcription job.</p>
+            <p>
+              API Calls:<br></br>
+              <code>startTranscriptionJob</code>: Initialize a transcription from a source audio file<br></br>
+              <code>getTranscription</code>: Get the text output from a transcription job
+            </p>
+          </div>
             <div className="col-xs-12">
                 <div className="row">
                   <div className="col-xs-2 step">
@@ -234,7 +246,9 @@ class Transcribe extends Component {
                 </div>
                 <div className="row">
                     <div className="col-xs-12 step">
-                    <h4>Transcription Result: {this.state.transcription}</h4>
+                    <h4>Transcription Result: </h4>
+                    <br></br>
+                    <p>{this.state.transcription}</p>
                     </div>
                 </div>
 

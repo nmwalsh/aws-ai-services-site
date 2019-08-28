@@ -91,10 +91,21 @@ class Rekognition extends Component {
         return (
           <div className="App">
             <div className="container">
-                <h1>Rekognition</h1>
-                <p><code>detectLabels</code>: Detect object labels from an input image!</p>
+                <div className="row text-left">
+                <h1>Amazon Rekognition</h1>
+                <div class="filledbar"></div>
+                <br></br>
+                <p>Amazon Rekognition makes it easy to add image and video analysis to your applications. You just provide an image or video to the Amazon Rekognition API, and the service can identify objects, people, text, scenes, and activities. It can detect any inappropriate content as well. Amazon Rekognition also provides highly accurate facial analysis and facial recognition. You can detect, analyze, and compare faces for a wide variety of use cases, including user verification, cataloging, people counting, and public safety.</p>
+                <br></br>
+                <p>In this example, we're going to show how easy it is to send an image to <code>Amazon Rekognition</code> to perform object identification.</p>
+                <p>
+                  API Calls:<br></br>
+                  <code>detectLabels</code>: Detect object labels from an input image!<br></br>
+                </p>
+              </div>
                 <div className="row">
-                    <div className="col-md-8">
+                    <div className="col-md-8 text-left">
+                      <h4>Step 1: Take picture</h4>
                         <Form>
                             <Webcam
                               audio={false}
@@ -109,13 +120,13 @@ class Rekognition extends Component {
                         
                         </Form>
                     </div>
-                    <div className="col-md-4">
-                      <span>Results:</span>{result}
+                    <div className="col-md-4 text-left">
+                      <h4>Results:</h4>{result}
                       <table>
                         <thead>
                           <tr>
                             <th>
-                              Object Name
+                              Label
                             </th>
                             <th>
                               Confidence

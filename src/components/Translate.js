@@ -58,9 +58,21 @@ class Translate extends Component {
         return (
           <div className="App">
              <div className="container">
-              <h1>Amazon Translate</h1>
+             <div className="row text-left">
+            <h1>Amazon Translate</h1>
+            <div class="filledbar"></div>
+            <br></br>
+            <p>Amazon Transcribe uses advanced machine learning technologies to recognize speech in audio files and transcribe them into text. You can use Amazon Transcribe to convert audio to text and to create applications that incorporate the content of audio files. For example, you can transcribe the audio track from a video recording to create closed captioning for the video.</p>
+            <br></br>
+            <p>In this example, we're going to show how easy it is to translate text to a target language of choice using <code>Amazon Translate</code>.</p>
+            <p>
+              API Calls:<br></br>
+              <code>startTranslation</code>: Initialize a transcription from a source audio file<br></br>
+            </p>
+          </div>
               <div className="row">
-                <div className="col-md-6">
+                <div className="col-md-4">
+                  <h4>Step 1: Enter Text</h4>
                   <form>
                       <div className="form-group">
                           <input type="text" className="form-control" value={this.state.text} onChange={this.onChangeText} placeholder="Enter the text for Translate to analyze!"/>
@@ -68,12 +80,29 @@ class Translate extends Component {
                       <button type="button" className="btn btn-success" onClick={this.sendTextToTranslate}>Translate text with Translate!</button>
                     </form>
                   </div>
-                  <div className="col-md-6">
-                {result}
-                {translation}
-                </div>
+                  <div className="col-md-4">
+                    <h4>Step 2: Choose Language</h4>
+                    <form>
+                    <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputGroupSelect01" value={this.state.text} onChange={this.onChangeText}></label>
+                          </div>
+                          <select class="custom-select" id="inputGroupSelect01">
+                            <option selected>Target language options</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="Italian">Italian</option>
+                            <option value="German">German</option>
+                          </select>
+                        </div>
+                    </form>
+                  </div>
+                  <div className="col-md-4">
+                    <h4>Result:</h4>
+                    {result}
+                    {translation}
                 </div>
               </div>
+            </div>
           </div>
         );
       }

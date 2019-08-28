@@ -14,7 +14,7 @@ class Main extends Component {
                                 </a>
                             </div>
                             <div className="col-xs-4 offset-1">
-                                    <h1>AI Services</h1>
+                                    <h1>AWS AI Service Demos</h1>
                                     <p>
                                         AWS pre-trained AI Services provide ready-made intelligence for your applications and workflows.
                                         <br></br>
@@ -37,6 +37,7 @@ class Main extends Component {
                                     </div>
                                     <p className="card-text">Amazon Transcribe is an automatic speech recognition (ASR) service that makes it easy for developers to add speech-to-text capability to their applications.</p>
                                     <a href="/transcribe" className="btn btn-info">Try Transcribe</a>
+                                    <a href="https://docs.aws.amazon.com/transcribe/latest/dg/what-is-transcribe.html" target="_blank" rel="noopener noreferrer" className="btn btn-info">Docs</a>
                                 </div>
                             </div>
                             <div className="card">
@@ -48,6 +49,7 @@ class Main extends Component {
                                     </div>
                                     <p className="card-text">Amazon Polly is a service that turns text into lifelike speech, allowing you to create applications that talk, and build entirely new categories of speech-enabled products.</p>
                                     <a href="/polly" className="btn btn-info">Try Polly</a>
+                                    <a href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html" target="_blank" rel="noopener noreferrer" className="btn btn-info">Docs</a>
                                 </div>
                             </div>
                             <div className="card">
@@ -59,6 +61,7 @@ class Main extends Component {
                                     </div>
                                     <p className="card-text">Amazon Comprehend is a natural language processing (NLP) service that uses machine learning to find insights and relationships in text. No machine learning experience required.</p>
                                     <a href="/comprehend" className="btn btn-info">Try Comprehend</a>
+                                    <a href="https://docs.aws.amazon.com/comprehend/latest/dg/what-is.html" target="_blank" rel="noopener noreferrer" className="btn btn-info">Docs</a>
                                 </div>
                             </div>
                         </div>
@@ -72,6 +75,7 @@ class Main extends Component {
                                     </div>
                                     <p className="card-text">Amazon Rekognition allows you to automatically identify objects, people, text, scenes, and activities, in images and videos. Available for batch and streaming.</p>
                                     <a href="/rekognition" className="btn btn-info">Try Rekognition</a>
+                                    <a href="https://docs.aws.amazon.com/rekognition/latest/dg/what-is.html" target="_blank" rel="noopener noreferrer" className="btn btn-info">Docs</a>
                                 </div>
                             </div>
                             <div className="card">
@@ -83,8 +87,10 @@ class Main extends Component {
                                     </div>
                                     <p className="card-text">Amazon Translate is a neural machine translation service that delivers fast, high-quality, and affordable language to language translation.</p>
                                     <a href="/translate" className="btn btn-info">Try Translate</a>
+                                    <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is.html" target="_blank" rel="noopener noreferrer" className="btn btn-info">Docs</a>
                                 </div>
                             </div>
+                            {/*
                             <div className="card">
                                 <div className="card-body">
                                     <h5 className="card-title">Amazon Forecast</h5>
@@ -129,7 +135,11 @@ class Main extends Component {
                                     <a href="/lex" className="btn btn-info">Try Lex</a>
                                 </div>
                             </div>
+                            */}
                     </div>
+                    </div>
+                    <div className="footer text-center">
+                        <p>&copy; {new Date().getFullYear()} Amazon Web Services, Inc. or its affiliates. All rights reserved.</p>
                     </div>
                     
         </div>)

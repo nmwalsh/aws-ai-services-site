@@ -59,15 +59,27 @@ class Comprehend extends Component {
         let result, response, score;
         if(this.state.resultMessage !== ''){
           result = <p>{this.state.resultMessage}</p>
-          response = <p>{this.state.resultSentiment}</p> 
-          score = <pre>{this.state.resultSentimentScore}</pre>
+          response = <code>{this.state.resultSentiment}</code> 
+          score = <code>{this.state.resultSentimentScore}</code>
         }
         return (
           <div className="App">
              <div className="container">
-              <h1>Amazon Comprehend</h1>
+              <div className="row text-left">
+                <h1>Amazon Comprehend</h1>
+                <div class="filledbar"></div>
+                <br></br>
+                <p>Amazon Comprehend uses natural language processing (NLP) to extract insights about the content of documents. Amazon Comprehend processes any text file in UTF-8 format. It develops insights by recognizing the entities, key phrases, language, sentiments, and other common elements in a document. Use Amazon Comprehend to create new products based on understanding the structure of documents. For example, using Amazon Comprehend you can search social networking feeds for mentions of products or scan an entire document repository for key phrases.</p>
+                <br></br>
+                <p>In this example, we're going to show how easy it is to send text to <code>Amazon Comprehend</code> to understand text sentiment or identify key phrases.</p>
+                <p>
+                  API Calls:<br></br>
+                  <code>sendTextToComprehend</code>: Send text to Comprehend, returning all relevant results in the response body.<br></br>
+                </p>
+              </div>
               <div className="row">
-                <div className="col-md-6">
+                <div className="col-md-6 text-left">
+                  <h4>Step 1: Insert Text</h4>
                   <form>
                       <div className="form-group">
                           <textarea class="form-control" rows="5" value={this.state.text} onChange={this.onChangeText} placeholder="Enter the text for Comprehend to analyze!"/>
@@ -75,9 +87,10 @@ class Comprehend extends Component {
                       <button type="button" className="btn btn-success" onClick={this.sendTextToComprehend}>Analyze text with Comprehend</button>
                     </form>
                   </div>
-                  <div className="col-md-6">
+                  <div className="col-md-6 text-left">
+                    <h4>Results: </h4>
                 {result}
-                {response}
+                {response}<br></br>
                 {score}
                 </div>
                 </div>
