@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import GitHubButton from 'react-github-btn'
 import '../App.css';
 
 class Main extends Component {
@@ -22,7 +23,10 @@ class Main extends Component {
                                         <br></br>
                                         <br></br>
                                         See them in action in the examples below!
-                                    </p>   
+                                    </p>  
+                                    <GitHubButton href="https://github.com/nmwalsh/aws-ai-services-site" data-icon="octicon-star" data-show-count="true" aria-label="Star nmwalsh/aws-ai-services-site on GitHub">Star</GitHubButton>
+                                    ' '
+                                    <GitHubButton href="https://github.com/nmwalsh/aws-ai-services-site/fork" data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork nmwalsh/aws-ai-services-site on GitHub">Fork</GitHubButton> 
                             </div>
                         </div>
                     </div>
@@ -90,57 +94,11 @@ class Main extends Component {
                                     <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is.html" target="_blank" rel="noopener noreferrer" className="btn btn-info">Docs</a>
                                 </div>
                             </div>
-                            {/*
-                            <div className="card">
-                                <div className="card-body">
-                                    <h5 className="card-title">Amazon Forecast</h5>
-                                    <div class="bar">
-                                        <div class="emptybar"></div>
-                                        <div class="filledbar"></div>
-                                    </div>
-                                    <p className="card-text">Amazon Forecast is a fully managed service that uses machine learning to deliver highly accurate forecasts and predictions for time-series data.</p>
-                                    <a href="/forecast" className="btn btn-info">Try Forecast</a>
-                                </div>
-                            </div>
-                            <div className="card">
-                                <div className="card-body">
-                                    <h5 className="card-title">Amazon Textract</h5>
-                                    <div class="bar">
-                                        <div class="emptybar"></div>
-                                        <div class="filledbar"></div>
-                                    </div>
-                                    <p className="card-text">Amazon Textract is a service that automatically extracts text and data from scanned documents, going beyond simple optical character recognition (OCR) to also identify the contents of fields in forms and information stored in tables.</p>
-                                    <a href="/textract" className="btn btn-info">Try Textract</a>
-                                </div>
-                            </div>
-                            <div className="card">
-                                <div className="card-body">
-                                    <h5 className="card-title">Amazon Personalize</h5>
-                                    <div class="bar">
-                                        <div class="emptybar"></div>
-                                        <div class="filledbar"></div>
-                                    </div>
-                                    <p className="card-text">Amazon Personalize is a machine learning service that makes it easy for developers to leverage their historical data to create individualized recommendations for customers using their applications.</p>
-                                    <a href="/personalize" className="btn btn-info">Try Personalize</a>
-                                </div>
-                            </div>
-                            <div className="card">
-                                <div className="card-body">
-                                    <h5 className="card-title">Amazon Lex</h5>
-                                    <div class="bar">
-                                        <div class="emptybar"></div>
-                                        <div class="filledbar"></div>
-                                    </div>
-                                    <p className="card-text">Amazon Lex is a service for building conversational interfaces using voice and text. Lex is based on the same technology that powers Amazon Alexa, enabling you to quickly and easily build sophisticated, natural language and conversational bots.</p>
-                                    <a href="/lex" className="btn btn-info">Try Lex</a>
-                                </div>
-                            </div>
-                            */}
                     </div>
                     </div>
                     <div className="footer text-center">
-                        <p>&copy; {new Date().getFullYear()} Amazon Web Services, Inc. or its affiliates. All rights reserved.</p>
-                    </div>
+                        <p>&copy; {new Date().getFullYear()} Amazon Web Services, Inc. or its affiliates. All rights reserved. <br></br> Made with ♥ by <a href="https://twitter.com/thenickwalsh" target="_blank" rel="noopener noreferrer">Nick Walsh</a></p>
+                     </div>
                     
         </div>)
     }

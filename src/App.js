@@ -7,10 +7,7 @@ import Main from './components/Main';
 import Comprehend from './components/Comprehend';
 import Rekognition from './components/Rekognition';
 import Translate from './components/Translate';
-import Forecast from './components/Forecast';
 import Textract from './components/Textract';
-import Personalize from './components/Personalize';
-import Lex from './components/Lex';
 
 class App extends Component {
 
@@ -22,10 +19,7 @@ class App extends Component {
       <Route path='/comprehend' component={Comprehend}/>
       <Route path='/rekognition' component={Rekognition} />
       <Route path='/translate' component={Translate} />
-      <Route path='/forecast' component={Forecast} />
       <Route path='/textract' component={Textract} />
-      <Route path='/personalize' component={Personalize} />
-      <Route path='/lex' component={Lex} />
     </Switch>
     )
   }
