@@ -11,32 +11,48 @@ class Translate extends Component {
         this.state = {
             text: '',
             resultMessage: '',
-            resultTranslation: '' // constituent values are mixed, positive, neutral, and negative
+            sourceLang: 'auto',
+            targetLang: 'es',
+            resultTranslation: '' 
         }
         this.onChangeText = this.onChangeText.bind(this);
+        this.onChangeSourceLanguage = this.onChangeSourceLanguage.bind(this);
+        this.onChangeTargetLanguage = this.onChangeTargetLanguage.bind(this);
         this.sendTextToTranslate = this.sendTextToTranslate.bind(this);
+
     }
 
     onChangeText(e){
         this.setState({text: e.target.value});
     }
 
+    onChangeSourceLanguage(e){
+        this.setState({sourceLang: e.target.value});
+    }
+
+    onChangeTargetLanguage(e){
+        this.setState({targetLang: e.target.value});
+    }
+
     sendTextToTranslate = () => {
         // API call params
         // full list of language codes available here: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Translate.html#translateText-property
         var TranslateParams = {
-            SourceLanguageCode: 'en',
-            TargetLanguageCode: 'es',
+            SourceLanguageCode: "",
+            TargetLanguageCode: "",
             Text: ""
         };
         TranslateParams.Text = this.state.text;
-        
+        TranslateParams.SourceLanguageCode = this.state.sourceLang;
+        TranslateParams.TargetLanguageCode = this.state.targetLang;
+
         // instantiate Translate client
         var Translate = new AWS.Translate({apiVersion: '2017-07-01'});
         let currentComponent = this;
 
         // call translateText method
-        Translate.translateText(TranslateParams, function (err, data){
+        if (!!TranslateParams.Text) {
+          Translate.translateText(TranslateParams, function (err, data){
             if (err) {
                 currentComponent.setState({resultMessage: err.message});
             }
@@ -45,6 +61,7 @@ class Translate extends Component {
                 currentComponent.setState({resultMessage: "Text translation successful!"})
             }
         });
+      };
 
     }
 
@@ -60,14 +77,15 @@ class Translate extends Component {
              <div className="container">
              <div className="row text-left">
             <h1>Amazon Translate</h1>
-            <div class="filledbar"></div>
+          </div>
+            <div class="titlebar"></div> 
+            <div className="row text-left">
+            <p>Amazon Translate is a neural machine translation service that delivers fast, high-quality, and affordable language translation. Neural machine translation is a form of language translation automation that uses deep learning models to deliver more accurate and more natural sounding translation than traditional statistical and rule-based translation algorithms. Amazon Translate allows you to localize content - such as websites and applications - for international users, and to easily translate large volumes of text efficiently.</p>
             <br></br>
-            <p>Amazon Transcribe uses advanced machine learning technologies to recognize speech in audio files and transcribe them into text. You can use Amazon Transcribe to convert audio to text and to create applications that incorporate the content of audio files. For example, you can transcribe the audio track from a video recording to create closed captioning for the video.</p>
-            <br></br>
-            <p>In this example, we're going to show how easy it is to translate text to a target language of choice using <code>Amazon Translate</code>.</p>
+            <p>In this example, we're going to show how easy it is to translate text from one language to another using <code>Amazon Translate</code>.</p>
             <p>
               API Calls:<br></br>
-              <code>startTranslation</code>: Initialize a transcription from a source audio file<br></br>
+              <code>startTranslation</code>: Initialize a translation from sample text for a given target language<br></br>
             </p>
           </div>
               <div className="row">
@@ -77,24 +95,91 @@ class Translate extends Component {
                       <div className="form-group">
                           <input type="text" className="form-control" value={this.state.text} onChange={this.onChangeText} placeholder="Enter the text for Translate to analyze!"/>
                       </div>
-                      <button type="button" className="btn btn-success" onClick={this.sendTextToTranslate}>Translate text with Translate!</button>
                     </form>
                   </div>
                   <div className="col-md-4">
-                    <h4>Step 2: Choose Language</h4>
+                    <h4>Step 2: Choose Languages</h4>
                     <form>
-                    <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <label class="input-group-text" for="inputGroupSelect01" value={this.state.text} onChange={this.onChangeText}></label>
-                          </div>
-                          <select class="custom-select" id="inputGroupSelect01">
-                            <option selected>Target language options</option>
-                            <option value="Spanish">Spanish</option>
-                            <option value="Italian">Italian</option>
-                            <option value="German">German</option>
+                    <div className="input-group mb-3">
+                      <div class="input-group-prepend"><div class="input-group-text">Input</div></div>
+                          <select id="selectSourceVoice" className="custom-select" value={this.state.sourceLang} onChange={this.onChangeSourceLanguage}>
+                            <option selected value="auto">Autodetect (Powered by Amazon Comprehend)</option>
+                            <option value="ar">Arabic</option>
+                            <option value="zh">Chinese (Simplified)</option>
+                            <option value="zh-TW">Chinese (Traditional)</option>
+                            <option value="cs">Czech</option>
+                            <option value="da">Danish</option>
+                            <option value="nl">Dutch</option>
+                            <option value="en">English</option>
+                            <option value="fi">Finnish</option>
+                            <option value="fr">French</option>
+                            <option value="de">German</option>
+                            <option value="el">Greek</option>
+                            <option value="he">Hebrew</option>
+                            <option value="hi">Hindi</option>
+                            <option value="hu">Hungarian</option>
+                            <option value="id">Indonesian</option>
+                            <option value="it">Italian</option>
+                            <option value="ja">Japanese</option>
+                            <option value="ko">Korean</option>
+                            <option value="ms">Malay</option>
+                            <option value="no">Norwegian</option>
+                            <option value="fa">Persian</option>
+                            <option value="pl">Polish</option>
+                            <option value="pt">Portugese</option>
+                            <option value="ro">Romanian</option>
+                            <option value="ru">Russian</option>
+                            <option value="es">Spanish</option>
+                            <option value="sv">Swedish</option>
+                            <option value="th">Thai</option>
+                            <option value="tr">Turkish</option>
+                            <option value="uk">Ukranian</option>
+                            <option value="ur">Urdu</option>
+                            <option value="vi">Vietnamese</option>
                           </select>
                         </div>
                     </form>
+                    <form>
+                    <div className="input-group mb-3">
+                      <div class="input-group-prepend"><div class="input-group-text">Output</div></div>
+                          <select id="selectTargetVoice" className="custom-select" value={this.state.targetLang} onChange={this.onChangeTargetLanguage}>
+                            <option selected value="es">Spanish</option>
+                            <option value="ar">Arabic</option>
+                            <option value="zh">Chinese (Simplified)</option>
+                            <option value="zh-TW">Chinese (Traditional)</option>
+                            <option value="cs">Czech</option>
+                            <option value="da">Danish</option>
+                            <option value="nl">Dutch</option>
+                            <option value="en">English</option>
+                            <option value="fi">Finnish</option>
+                            <option value="fr">French</option>
+                            <option value="de">German</option>
+                            <option value="el">Greek</option>
+                            <option value="he">Hebrew</option>
+                            <option value="hi">Hindi</option>
+                            <option value="hu">Hungarian</option>
+                            <option value="id">Indonesian</option>
+                            <option value="it">Italian</option>
+                            <option value="ja">Japanese</option>
+                            <option value="ko">Korean</option>
+                            <option value="ms">Malay</option>
+                            <option value="no">Norwegian</option>
+                            <option value="fa">Persian</option>
+                            <option value="pl">Polish</option>
+                            <option value="pt">Portugese</option>
+                            <option value="ro">Romanian</option>
+                            <option value="ru">Russian</option>
+                            <option value="es">Spanish</option>
+                            <option value="sv">Swedish</option>
+                            <option value="th">Thai</option>
+                            <option value="tr">Turkish</option>
+                            <option value="uk">Ukranian</option>
+                            <option value="ur">Urdu</option>
+                            <option value="vi">Vietnamese</option>
+                          </select>
+                        </div>
+                    </form>
+                    <button type="button" className="btn btn-info" onClick={this.sendTextToTranslate}>Translate text with Translate!</button>
                   </div>
                   <div className="col-md-4">
                     <h4>Result:</h4>

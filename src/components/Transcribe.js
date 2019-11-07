@@ -186,10 +186,10 @@ class Transcribe extends Component {
         const { recording, stream } = this.state;
         let transcribeBtn;
         if(!this.state.transcriptionJobComplete){
-          transcribeBtn =  <button className="btn btn-primary" onClick={this.getTranscription}>Get Transcription</button>
+          transcribeBtn =  <button className="btn btn-info" onClick={this.getTranscription}>Get Transcription</button>
         }
         else{
-          transcribeBtn = <button className="btn btn-primary" type="button" disabled>
+          transcribeBtn = <button className="btn btn-info" type="button" disabled>
                             <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                             <span className="sr-only">Transcribing...</span>
                           </button>
@@ -203,8 +203,9 @@ class Transcribe extends Component {
         <div className="container">
          <div className="row">
             <h1>Amazon Transcribe</h1>
-            <div class="filledbar"></div>
-            <br></br>
+            </div>
+            <div class="titlebar"></div> 
+            <div className="row text-left">
             <p>Amazon Transcribe uses advanced machine learning technologies to recognize speech in audio files and transcribe them into text. You can use Amazon Transcribe to convert audio to text and to create applications that incorporate the content of audio files. For example, you can transcribe the audio track from a video recording to create closed captioning for the video.</p>
             <br></br>
             <p>In this example, we're going to show how easy it is to record audio, upload it to <code>Amazon S3</code>, and use <code>Amazon Transcribe</code> to perform a transcription job.</p>
@@ -219,7 +220,7 @@ class Transcribe extends Component {
                   <div className="col-xs-2 step">
                     <h3 className="stepTitle">Step 1</h3>
                     <button
-                    className={recording? 'btn btn-danger' : 'btn btn-success'}
+                    className={recording? 'btn btn-danger' : 'btn btn-info'}
                     onClick={() => {
                     recording ? this.stopRecord() : this.startRecord();
                     }}
