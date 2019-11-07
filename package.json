@@ -6,7 +6,7 @@
     "aws-sdk": "^2.518.0",
     "bootstrap": "^4.3.1",
     "data-uri-to-buffer": "^2.0.0",
-    "jquery": "^3.3.1",
+    "jquery": "^3.4.0",
     "popper": "^1.0.1",
     "react": "^16.8.2",
     "react-audio-player": "^0.11.0",
