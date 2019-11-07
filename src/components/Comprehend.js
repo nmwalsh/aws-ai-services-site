@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import { watchFile } from 'fs';
+import { SSL_OP_EPHEMERAL_RSA } from 'constants';
 var AWS = require('aws-sdk');
 AWS.config.region = 'us-east-1'; 
 AWS.config.credentials = new AWS.CognitoIdentityCredentials({IdentityPoolId: 'us-east-1:1956382a-b3f6-472c-9a8d-3a246853c917'});
@@ -51,12 +53,8 @@ class Comprehend extends Component {
                 currentComponent.setState({resultSentimentMessage: ">>> Sentiment analyzed!"});
                 currentComponent.setState({resultSentiment: data.Sentiment});
                 currentComponent.setState({resultSentimentScore: JSON.stringify(data.SentimentScore)});
-                /*
-                for (var key in data.SentimentScore)
-                {
-                this.state.resultSentimentScore.push(data.SentimentScore[key]);
-                }*/
             }
+            document.getElementById("chck1").checked = true;
         });
         
         // Entities[i] .text, .type, .score
@@ -70,7 +68,9 @@ class Comprehend extends Component {
               currentComponent.setState({resultEntities: JSON.stringify(data.Entities)});
               //currentComponent.setState({resultEntitiesScores: JSON.stringify(data.SentimentScore)});
           }
+          document.getElementById("chck2").checked = true;
         });
+        
           
           comprehend.detectSyntax(comprehendParams, function (err, data){
             if (err) {
@@ -81,6 +81,7 @@ class Comprehend extends Component {
                 currentComponent.setState({resultSyntaxMessage: ">>> Syntax analyzed!"})
                 currentComponent.setState({resultSyntax: JSON.stringify(data.SyntaxTokens)});
             }
+            document.getElementById("chck3").checked = true;
           });
 
           //KeyPhrases[n] .Text, .Score
@@ -93,8 +94,7 @@ class Comprehend extends Component {
               currentComponent.setState({resultKeyPhrasesMessage: ">>> KeyPhrases analyzed!"})
               currentComponent.setState({resultKeyPhrases: JSON.stringify(data.KeyPhrases)});
           }
-          
-           // end API loop
+          document.getElementById("chck4").checked = true;
           });
     }
   }
@@ -133,7 +133,7 @@ class Comprehend extends Component {
                 </p>
               </div>
               <div className="row">
-                <div className="col-md-6 text-left">
+                <div className="col-md-5 text-left">
                   <h4>Step 1: Insert Text</h4>
                   <form>
                       <div className="form-group">
@@ -142,17 +142,44 @@ class Comprehend extends Component {
                       <button type="button" className="btn btn-info" onClick={this.sendTextToComprehend}>Analyze text with Comprehend</button>
                     </form>
                   </div>
-                  <div className="col-md-6 text-left">
+                  <div className="col-md-7 text-left">
                     <h4>Results: </h4>
-                {sentimentStatus}
-                {sentiment}<br></br>
-                {sentimentScore}<br></br>
-                {entitiesStatus}
-                {entities}<br></br>
-                {keyPhrasesStatus}
-                {keyPhrases}<br></br>
-                {syntaxStatus}
-                {syntax}
+                  {/* test start */}
+                  <div class="row">
+                    <div class="col">
+                      <div class="tabs">
+                        <div class="tab">
+                          <input hidden type="checkbox" id="chck1"/>
+                          <label class="tab-label" htmlFor="chck1">Sentiment</label>
+                          <div class="tab-content">
+                            {sentiment}<br></br>
+                            {sentimentScore}
+                          </div>
+                        </div>
+                        <div class="tab">
+                          <input hidden type="checkbox" id="chck2"/>
+                          <label class="tab-label" htmlFor="chck2">Entities</label>
+                          <div class="tab-content">
+                            {entities}
+                          </div>
+                        </div>
+                        <div class="tab">
+                          <input hidden type="checkbox" id="chck3"/>
+                          <label class="tab-label" htmlFor="chck3">Key Phrases</label>
+                          <div class="tab-content">
+                            {keyPhrases}
+                          </div>
+                        </div>
+                        <div class="tab">
+                          <input hidden type="checkbox" id="chck4"/>
+                          <label class="tab-label" htmlFor="chck4">Syntax Tokens</label>
+                          <div class="tab-content">
+                            {syntax}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 </div>
               </div>
