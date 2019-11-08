@@ -201,6 +201,7 @@ class Transcribe extends Component {
         }
         return (
         <div className="container">
+        <div className="content-wrap">
          <div className="row">
             <h1>Amazon Transcribe</h1>
             </div>
@@ -254,6 +255,10 @@ class Transcribe extends Component {
                 </div>
 
             </div>
+            <div className="footer-demo text-center">
+                        <p>&copy; {new Date().getFullYear()} Amazon Web Services, Inc. or its affiliates. All rights reserved. <br></br> Made with ♥ by <a href="https://twitter.com/thenickwalsh" target="_blank" rel="noopener noreferrer">Nick Walsh</a></p>
+              </div>
+              </div>
         </div>)
     }
 }

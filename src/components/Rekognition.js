@@ -91,6 +91,7 @@ class Rekognition extends Component {
         return (
           <div className="App">
             <div className="container">
+              <div className="content-wrap">
                 <div className="row text-left">
                 <h1>Amazon Rekognition</h1>
                 </div>
@@ -139,6 +140,10 @@ class Rekognition extends Component {
                       </table>
                     </div>
                 </div>
+            </div>
+            <div className="footer-demo text-center">
+                        <p>&copy; {new Date().getFullYear()} Amazon Web Services, Inc. or its affiliates. All rights reserved. <br></br> Made with ♥ by <a href="https://twitter.com/thenickwalsh" target="_blank" rel="noopener noreferrer">Nick Walsh</a></p>
+            </div>
             </div>
         </div>
         )

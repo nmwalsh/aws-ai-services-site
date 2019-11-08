@@ -117,17 +117,22 @@ class Comprehend extends Component {
         return (
           <div className="App">
              <div className="container">
+              <div className="content-wrap">
               <div className="row text-left">
                 <h1>Amazon Comprehend</h1>
                 </div>
                 <div class="titlebar"></div> 
                 <div className="row text-left">
                 <p>Amazon Comprehend uses natural language processing (NLP) to extract insights about the content of documents. Amazon Comprehend processes any text file in UTF-8 format. It develops insights by recognizing the entities, key phrases, language, sentiments, and other common elements in a document. Use Amazon Comprehend to create new products based on understanding the structure of documents. For example, using Amazon Comprehend you can search social networking feeds for mentions of products or scan an entire document repository for key phrases.</p>
-                <br></br>
-                <p>In this example, we're going to show how easy it is to send text to <code>Amazon Comprehend</code> to understand text sentiment or identify key phrases.</p>
+                <p>In this example, we're going to show how easy it is to send text to <code>Amazon Comprehend</code> to understand text sentiment, identify entities and key phrases, and assess syntax tokens.</p>
                 <p>
-                  API Calls:<br></br>
-                  <code>sendTextToComprehend</code>: Send text to Comprehend, returning all relevant results in the response body.<br></br>
+                  <b>Methods:</b>
+                    <br></br>
+                  <code>sendTextToComprehend()</code>: Send text to Comprehend, returning all relevant results in the response body.<br></br>
+                    <li><code><a href="https://docs.aws.amazon.com/comprehend/latest/dg/get-started-api-sentiment.html" target="_blank" rel="noopener noreferrer">detectSentiment()</a></code></li>
+                    <li><code><a href="https://docs.aws.amazon.com/comprehend/latest/dg/get-started-api-entities.html" target="_blank" rel="noopener noreferrer">detectEntities()</a></code></li>
+                    <li><code><a href="https://docs.aws.amazon.com/comprehend/latest/dg/get-started-api-key-phrases.html" target="_blank" rel="noopener noreferrer">detectKeyPhrases()</a></code></li>
+                    <li><code><a href="https://docs.aws.amazon.com/comprehend/latest/dg/get-started-api-syntax.html" target="_blank" rel="noopener noreferrer">detectSyntax()</a></code></li>
                 </p>
               </div>
               <div className="row">
@@ -180,8 +185,15 @@ class Comprehend extends Component {
                   </div>
                 </div>
                 </div>
+              </div> 
+              <div className="row">
+              <div className="footer-demo text-center">
+                        <style>position:relative;</style>
+                        <p>&copy; {new Date().getFullYear()} Amazon Web Services, Inc. or its affiliates. All rights reserved. <br></br> Made with ♥ by <a href="https://twitter.com/thenickwalsh" target="_blank" rel="noopener noreferrer">Nick Walsh</a></p>
               </div>
-          </div>
+              </div>
+              </div> 
+          </div> // app end
         );
       }
 }

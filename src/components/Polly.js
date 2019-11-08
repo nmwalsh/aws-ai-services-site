@@ -83,6 +83,7 @@ class Polly extends Component {
           return (
             <div className="App">
                <div className="container">
+                 <div className="content-wrap">
                <div className="row text-left">
                 <h1>Amazon Polly</h1>
               </div>
@@ -94,8 +95,8 @@ class Polly extends Component {
                 <br></br>
                 <p>In this example, we're going to show how easy it is to send text to <code>Amazon Polly</code> to synthesize audio.</p>
                 <p>
-                  API Calls:<br></br>
-                  <code>getSynthesizeSpeechUrl</code>: Initialize a audio generation, and return the URL that the resulting file will be returned at.<br></br>
+                  Methods:<br></br>
+                  <li><code><a href="https://docs.amazonaws.cn/AWSJavaScriptSDK/latest/AWS/Polly/Presigner.html#getSynthesizeSpeechUrl-property" target="_blank" rel="noopener noreferrer">getSynthesizeSpeechUrl()</a></code></li> Initialize a audio generation, and return the URL that the resulting file will be returned at.<br></br>
                 </p>
               </div>
               <div className="row">
@@ -230,6 +231,10 @@ class Polly extends Component {
                   </code></pre>
                 </div>*/}
                 </div>
+                <div className="footer-demo text-center">
+                        <p>&copy; {new Date().getFullYear()} Amazon Web Services, Inc. or its affiliates. All rights reserved. <br></br> Made with ♥ by <a href="https://twitter.com/thenickwalsh" target="_blank" rel="noopener noreferrer">Nick Walsh</a></p>
+              </div>
+              </div>
             </div>
           );
         }

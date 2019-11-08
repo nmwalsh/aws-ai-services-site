@@ -55,11 +55,13 @@ class Translate extends Component {
           Translate.translateText(TranslateParams, function (err, data){
             if (err) {
                 currentComponent.setState({resultMessage: err.message});
+                currentComponent.setState({resultTranslation: 'No translation occurred - check the error!'})
             }
             else {
                 currentComponent.setState({resultTranslation: data.TranslatedText});
                 currentComponent.setState({resultMessage: "Text translation successful!"})
             }
+            document.getElementById("chck1").checked = true;
         });
       };
 
@@ -69,12 +71,13 @@ class Translate extends Component {
     render() {
         let result, translation;
         if(this.state.resultMessage !== ''){
-          result = <p>{this.state.resultMessage}</p>
-          translation = <p>{this.state.resultTranslation}</p>
+          result = <code>{this.state.resultMessage}</code>
+          translation = <code>{this.state.resultTranslation}</code>
         }
         return (
           <div className="App">
              <div className="container">
+               <div className="content-wrap">
              <div className="row text-left">
             <h1>Amazon Translate</h1>
           </div>
@@ -85,7 +88,7 @@ class Translate extends Component {
             <p>In this example, we're going to show how easy it is to translate text from one language to another using <code>Amazon Translate</code>.</p>
             <p>
               API Calls:<br></br>
-              <code>startTranslation</code>: Initialize a translation from sample text for a given target language<br></br>
+              <code>translateText()</code>: Initialize a translation from sample text for a given target language<br></br>
             </p>
           </div>
               <div className="row">
@@ -183,11 +186,23 @@ class Translate extends Component {
                   </div>
                   <div className="col-md-4">
                     <h4>Result:</h4>
-                    {result}
-                    {translation}
+                    <div class ="tabs">
+                    <div class="tab">
+                          <input hidden type="checkbox" id="chck1"/>
+                          <label class="tab-label" htmlFor="chck1">Translation</label>
+                          <div class="tab-content">
+                            {result}<br></br>
+                            {translation}
+                          </div>
+                        </div>
+                      </div>
                 </div>
               </div>
             </div>
+            <div className="footer-demo text-center">
+                        <p>&copy; {new Date().getFullYear()} Amazon Web Services, Inc. or its affiliates. All rights reserved. <br></br> Made with ♥ by <a href="https://twitter.com/thenickwalsh" target="_blank" rel="noopener noreferrer">Nick Walsh</a></p>
+              </div>
+          </div>
           </div>
         );
       }

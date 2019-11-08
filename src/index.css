@@ -9,6 +9,12 @@ dark navy: #161E2D
 
 .container{
   padding-top:50px;
+  position: relative;
+  min-height: 100vh;
+}
+
+.content-wrap{
+  padding-bottom: 100px;
 }
 
 .hero {
@@ -22,11 +28,13 @@ dark navy: #161E2D
   position: absolute;
   /*background-size: 100% 900px;*/
   height:100%;
-  width:30%;
+  width:40%;
   top:0px;
-  left:70%;
+  left:95%;
   opacity: 0.5;
   z-index:-1;
+  margin: -50px auto 0 auto;
+
 }
 
 .hero img {
@@ -158,13 +166,23 @@ code {
   left:0px;
   bottom:0px;
   margin-top:75px;
-  height:0px;
   width:100%;
-  color:red;
   background:#161E2D;
 }
 
 .footer p{
+  color:gray;
+}
+
+.footer-demo {
+  left:0px;
+  bottom:0px;
+  margin-top:75px;
+  width:100%;
+  background:#161E2D;
+  position:absolute;
+}
+.footer-demo p{
   color:gray;
 }
 
