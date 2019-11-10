@@ -11,7 +11,7 @@ class Polly extends Component {
       
         this.state = {
           text: '',
-          voiceId: 'ivy',
+          voiceId: '',
           engine: '',
           resultMessage: '',
           pollyUrl: ''
