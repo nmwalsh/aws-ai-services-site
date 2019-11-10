@@ -97,12 +97,12 @@ class Rekognition extends Component {
                 </div>
                 <div class="titlebar"></div> 
                 <div className="row text-left">
-                <p>Amazon Rekognition makes it easy to add image and video analysis to your applications. You just provide an image or video to the Amazon Rekognition API, and the service can identify objects, people, text, scenes, and activities. It can detect any inappropriate content as well. Amazon Rekognition also provides highly accurate facial analysis and facial recognition. You can detect, analyze, and compare faces for a wide variety of use cases, including user verification, cataloging, people counting, and public safety.</p>
+                <p><a href="https://aws.amazon.com/rekognition/" target="_blank" rel="noopener noreferrer">Amazon Rekognition</a> makes it easy to add image and video analysis to your applications. You just provide an image or video to the Amazon Rekognition API, and the service can identify objects, people, text, scenes, and activities. It can detect any inappropriate content as well. Amazon Rekognition also provides highly accurate facial analysis and facial recognition. You can detect, analyze, and compare faces for a wide variety of use cases, including user verification, cataloging, people counting, and public safety.</p>
                 <br></br>
                 <p>In this example, we're going to show how easy it is to send an image to <code>Amazon Rekognition</code> to perform object identification.</p>
                 <p>
                   API Calls:<br></br>
-                  <code>detectLabels</code>: Detect object labels from an input image!<br></br>
+                  <li><code>detectLabels()</code>: Detect object labels from an input image!</li><br></br>
                 </p>
               </div>
                 <div className="row">
