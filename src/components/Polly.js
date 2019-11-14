@@ -41,7 +41,7 @@ class Polly extends Component {
             // Create synthesizeSpeech params JSON
             var speechParams = {
               OutputFormat: "mp3",
-              SampleRate: "16000",
+              //SampleRate: "16000",
               Text: "",
               TextType: "text",
               Engine: "standard", //standard, neural
