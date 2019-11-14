@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import NavBar from '../utilities/navbar';
+import Footer from '../utilities/footer';
 import { Form } from 'semantic-ui-react';
 import Webcam from 'react-webcam';
 var dataUriToBuffer = require('data-uri-to-buffer');
@@ -90,6 +92,7 @@ class Rekognition extends Component {
         };
         return (
           <div className="App">
+            <NavBar/>
             <div className="container">
               <div className="content-wrap">
                 <div className="row text-left">
@@ -101,8 +104,8 @@ class Rekognition extends Component {
                 <br></br>
                 <p>In this example, we're going to show how easy it is to send an image to <code>Amazon Rekognition</code> to perform object identification.</p>
                 <p>
-                  API Calls:<br></br>
-                  <li><code>detectLabels()</code>: Detect object labels from an input image!</li><br></br>
+                  Methods:<br></br>
+                  <ul><li><code><a href="https://docs.aws.amazon.com/rekognition/latest/dg/API_DetectLabels.html" target="_blank" rel="noopener noreferrer">detectLabels()</a></code>: Detect object labels from an input image!</li></ul>
                 </p>
               </div>
                 <div className="row">
@@ -141,9 +144,7 @@ class Rekognition extends Component {
                     </div>
                 </div>
             </div>
-            <div className="footer-demo text-center">
-                        <p>&copy; {new Date().getFullYear()} Amazon Web Services, Inc. or its affiliates. All rights reserved. <br></br> Made with ♥ by <a href="https://twitter.com/thenickwalsh" target="_blank" rel="noopener noreferrer">Nick Walsh</a></p>
-            </div>
+            <Footer/>
             </div>
         </div>
         )

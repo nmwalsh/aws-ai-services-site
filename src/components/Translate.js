@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import NavBar from '../utilities/navbar';
+import Footer from '../utilities/footer';
 var AWS = require('aws-sdk');
 AWS.config.region = 'us-east-1'; 
 AWS.config.credentials = new AWS.CognitoIdentityCredentials({IdentityPoolId: 'us-east-1:1956382a-b3f6-472c-9a8d-3a246853c917'});
@@ -76,6 +78,7 @@ class Translate extends Component {
         }
         return (
           <div className="App">
+             <NavBar/>
              <div className="container">
                <div className="content-wrap">
              <div className="row text-left">
@@ -87,8 +90,8 @@ class Translate extends Component {
             <br></br>
             <p>In this example, we're going to show how easy it is to translate text from one language to another using <code>Amazon Translate</code>.</p>
             <p>
-              API Calls:<br></br>
-              <code>translateText()</code>: Initialize a translation from sample text for a given target language<br></br>
+              Methods:<br></br>
+              <ul><li><a href="https://docs.aws.amazon.com/translate/latest/dg/API_TranslateText.html" target="_blank" rel="noopener noreferrer"><code>translateText()</code></a>: Initialize a translation from sample text for a given target language</li></ul>
             </p>
           </div>
               <div className="row">
@@ -199,9 +202,7 @@ class Translate extends Component {
                 </div>
               </div>
             </div>
-            <div className="footer-demo text-center">
-                        <p>&copy; {new Date().getFullYear()} Amazon Web Services, Inc. or its affiliates. All rights reserved. <br></br> Made with ♥ by <a href="https://twitter.com/thenickwalsh" target="_blank" rel="noopener noreferrer">Nick Walsh</a></p>
-              </div>
+            <Footer/>
           </div>
           </div>
         );

@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import NavBar from '../utilities/navbar';
+import Footer from '../utilities/footer';
 import RecorderJS from 'recorder-js';
 import ReactAudioPlayer from 'react-audio-player';
 import { getAudioStream, exportBuffer } from '../utilities/audio';
@@ -200,25 +202,29 @@ class Transcribe extends Component {
         return null;
         }
         return (
+        <div className="App">
+          <NavBar/>
         <div className="container">
          <div className="row">
             <h1>Amazon Transcribe</h1>
             </div>
             <div class="titlebar"></div> 
             <div className="row text-left">
-            <p>Amazon Transcribe uses advanced machine learning technologies to recognize speech in audio files and transcribe them into text. You can use Amazon Transcribe to convert audio to text and to create applications that incorporate the content of audio files. For example, you can transcribe the audio track from a video recording to create closed captioning for the video.</p>
+            <p><a href="https://aws.amazon.com/transcribe/" target="_blank" rel="noopener noreferrer">Amazon Transcribe</a> uses advanced machine learning technologies to recognize speech in audio files and transcribe them into text. You can use Amazon Transcribe to convert audio to text and to create applications that incorporate the content of audio files. For example, you can transcribe the audio track from a video recording to create closed captioning for the video.</p>
             <br></br>
             <p>In this example, we're going to show how easy it is to record audio, upload it to <code>Amazon S3</code>, and use <code>Amazon Transcribe</code> to perform a transcription job.</p>
             <p>
-              API Calls:<br></br>
-              <code>startTranscriptionJob</code>: Initialize a transcription from a source audio file<br></br>
-              <code>getTranscription</code>: Get the text output from a transcription job
+              <b>Methods:</b><br></br>
+              <ul>
+              <li><code><a href="https://docs.aws.amazon.com/transcribe/latest/dg/API_StartTranscriptionJob.html" target="_blank" rel="noopener noreferrer">startTranscriptionJob()</a></code>: Initialize a transcription from a source audio file</li>
+              <li><code><a href="https://docs.aws.amazon.com/transcribe/latest/dg/API_GetTranscriptionJob.html" target="_blank" rel="noopener noreferrer">getTranscriptionJob()</a></code>: Get the text output from a transcription job</li>
+              </ul>
             </p>
           </div>
             <div className="col-xs-12">
                 <div className="row">
                   <div className="col-xs-2 step">
-                    <h3 className="stepTitle">Step 1</h3>
+                    <h4 className="stepTitle">Step 1: Record Audio</h4>
                     <button
                     className={recording? 'btn btn-danger' : 'btn btn-info'}
                     onClick={() => {
@@ -227,22 +233,18 @@ class Transcribe extends Component {
                     >
                     {recording ? 'Stop Recording' : 'Start Recording'}
                     </button>
-                    <h4 className="stepInstructions">Record something to transcribe</h4>
                     </div>
                     <div className="col-xs-2 step">
-                    <h3 className="stepTitle">Step 2</h3>
+                    <h4 className="stepTitle">Step 2: Upload to S3</h4>
                     <ReactAudioPlayer
                     src={this.state.s3URL}
                     autoPlay
                     controls
                     />
-                    <h4 className="stepInstructions">Recording is uploaded to S3</h4>
                   </div>
                   <div className="col-xs-2 step">
-                    <h3 className="stepTitle">Step 3</h3>
+                    <h4 className="stepTitle">Step 3: Get transcription</h4>
                     {transcribeBtn}
-                    
-                    <h4 className="stepInstructions">Get the transcription!</h4>
                   </div>
                 </div>
                 <div className="row">
@@ -254,7 +256,10 @@ class Transcribe extends Component {
                 </div>
 
             </div>
-        </div>)
+            <Footer />
+        </div>
+        </div>
+        )
     }
 }
 

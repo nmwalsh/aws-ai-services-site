@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import NavBar from '../utilities/navbar';
+import Footer from '../utilities/footer';
 var AWS = require('aws-sdk');
 AWS.config.region = 'us-east-1'; 
 AWS.config.credentials = new AWS.CognitoIdentityCredentials({IdentityPoolId: 'us-east-1:1956382a-b3f6-472c-9a8d-3a246853c917'});
@@ -116,6 +118,7 @@ class Comprehend extends Component {
         }
         return (
           <div className="App">
+            <NavBar/>
              <div className="container">
               <div className="content-wrap">
               <div className="row text-left">
@@ -123,7 +126,7 @@ class Comprehend extends Component {
                 </div>
                 <div class="titlebar"></div> 
                 <div className="row text-left">
-                <p>Amazon Comprehend uses natural language processing (NLP) to extract insights about the content of documents. Amazon Comprehend processes any text file in UTF-8 format. It develops insights by recognizing the entities, key phrases, language, sentiments, and other common elements in a document. Use Amazon Comprehend to create new products based on understanding the structure of documents. For example, using Amazon Comprehend you can search social networking feeds for mentions of products or scan an entire document repository for key phrases.</p>
+                <p><a href="https://aws.amazon.com/comprehend/" target="_blank" rel="noopener noreferrer">Amazon Comprehend</a> uses natural language processing (NLP) to extract insights about the content of documents. Amazon Comprehend processes any text file in UTF-8 format. It develops insights by recognizing the entities, key phrases, language, sentiments, and other common elements in a document. Use Amazon Comprehend to create new products based on understanding the structure of documents. For example, using Amazon Comprehend you can search social networking feeds for mentions of products or scan an entire document repository for key phrases.</p>
                 <p>In this example, we're going to show how easy it is to send text to <code>Amazon Comprehend</code> to understand text sentiment, identify entities and key phrases, and assess syntax tokens.</p>
                 <p>
                   <b>Methods:</b>
@@ -186,12 +189,7 @@ class Comprehend extends Component {
                 </div>
                 </div>
               </div> 
-              <div className="row">
-              <div className="footer-demo text-center">
-                        <style>position:relative;</style>
-                        <p>&copy; {new Date().getFullYear()} Amazon Web Services, Inc. or its affiliates. All rights reserved. <br></br> Made with ♥ by <a href="https://twitter.com/thenickwalsh" target="_blank" rel="noopener noreferrer">Nick Walsh</a></p>
-              </div>
-              </div>
+              <Footer/>
               </div> 
           </div> // app end
         );

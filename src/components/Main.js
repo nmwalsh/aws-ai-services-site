@@ -22,7 +22,7 @@ class Main extends Component {
                                         Get started powering your applications in minutes: <i>no machine learning knowledge required</i>.
                                         <br></br>
                                         <br></br>
-                                        See them in action in the examples below!
+                                        See them in action in the examples below, and check out the source code below.
                                     </p>  
                                     <GitHubButton href="https://github.com/nmwalsh/aws-ai-services-site" data-icon="octicon-star" data-show-count="true" aria-label="Star nmwalsh/aws-ai-services-site on GitHub">Star</GitHubButton>
                                     ' '
@@ -97,7 +97,7 @@ class Main extends Component {
                     </div>
                     </div>
                     <div className="footer text-center">
-                        <p>&copy; {new Date().getFullYear()} Amazon Web Services, Inc. or its affiliates. All rights reserved. <br></br> Made with ♥ by <a href="https://twitter.com/thenickwalsh" target="_blank" rel="noopener noreferrer">Nick Walsh</a></p>
+                        <p>&copy; {new Date().getFullYear()} Amazon Web Services, Inc. or its affiliates. All rights reserved. <br></br> Made with ♥ by <a href="https://twitter.com/thenickwalsh" target="_blank" rel="noopener noreferrer">Nick Walsh</a> and <a href="https://twitter.com/kneekey23" target="_blank" rel="noopener noreferrer">Nicki Stone</a></p>
                      </div>
                     
         </div>)

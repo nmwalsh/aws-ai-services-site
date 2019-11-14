@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import NavBar from '../utilities/navbar';
+import Footer from '../utilities/footer';
 import ReactAudioPlayer from 'react-audio-player';
 import $ from 'jquery';
 var AWS = require('aws-sdk');
@@ -88,6 +90,7 @@ class Polly extends Component {
           
           return (
             <div className="App">
+              <NavBar/>
                <div className="container">
                  <div className="content-wrap">
                <div className="row text-left">
@@ -95,18 +98,15 @@ class Polly extends Component {
               </div>
                 <div class="titlebar"></div>     
                 <div className="row text-left">
-                <p>Amazon Polly is a cloud service that converts text into lifelike speech. You can use Amazon Polly to develop applications that increase engagement and accessibility. Amazon Polly supports multiple languages and includes a variety of lifelike voices, so you can build speech-enabled applications that work in multiple locations and use the ideal voice for your customers. With Amazon Polly, you only pay for the text you synthesize. You can also cache and replay Amazon Polly’s generated speech at no additional cost.</p>
+                <p><a href="https://aws.amazon.com/polly/" target="_blank" rel="noopener noreferrer">Amazon Polly</a> is a cloud service that converts text into lifelike speech. You can use Amazon Polly to develop applications that increase engagement and accessibility. Amazon Polly supports multiple languages and includes a variety of lifelike voices, so you can build speech-enabled applications that work in multiple locations and use the ideal voice for your customers. With Amazon Polly, you only pay for the text you synthesize. You can also cache and replay Amazon Polly’s generated speech at no additional cost.</p>
                 <br></br>
                 <p>For a full breakdown of the available voices and their respective locales, <a href="https://docs.aws.amazon.com/polly/latest/dg/voicelist.html" target="_blank" rel="noopener noreferrer">view the docs here</a>.</p>
                 <br></br>
                 <p>In this example, we're going to show how easy it is to send text to <code>Amazon Polly</code> to synthesize audio.</p>
                 <p>
-                  Methods:<br></br>
-                  <li><code><a href="https://docs.amazonaws.cn/AWSJavaScriptSDK/latest/AWS/Polly/Presigner.html#getSynthesizeSpeechUrl-property" target="_blank" rel="noopener noreferrer">getSynthesizeSpeechUrl()</a></code></li> Initialize a audio generation, and return the URL that the resulting file will be returned at.<br></br>
+                  <b>Methods:</b><br></br>
+                  <ul><li><code><a href="https://docs.amazonaws.cn/AWSJavaScriptSDK/latest/AWS/Polly/Presigner.html#getSynthesizeSpeechUrl-property" target="_blank" rel="noopener noreferrer">getSynthesizeSpeechUrl()</a></code></li> Send audio data to Polly, and return the URL where the result will be.<br></br></ul>
                 </p>
-              </div>
-              <div className="row">
-                <h3>Demo</h3>
               </div>
                 <div className="row">
                   <div className="col-md-3 text-left">
@@ -265,9 +265,7 @@ class Polly extends Component {
                   </code></pre>
                 </div>*/}
                 </div>
-                <div className="footer-demo text-center">
-                        <p>&copy; {new Date().getFullYear()} Amazon Web Services, Inc. or its affiliates. All rights reserved. <br></br> Made with ♥ by <a href="https://twitter.com/thenickwalsh" target="_blank" rel="noopener noreferrer">Nick Walsh</a></p>
-              </div>
+                <Footer/>
               </div>
             </div>
           );

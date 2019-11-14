@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import ReactAudioPlayer from 'react-audio-player';
 var AWS = require('aws-sdk');
 AWS.config.region = 'us-east-1'; 
 AWS.config.credentials = new AWS.CognitoIdentityCredentials({IdentityPoolId: 'us-east-1:1956382a-b3f6-472c-9a8d-3a246853c917'});
