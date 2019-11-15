@@ -8,7 +8,7 @@ import TranscribeService from "aws-sdk/clients/transcribeservice";
 import S3Service from "aws-sdk/clients/s3";
 import '../App.css';
 
-var transcribeservice = new TranscribeService();
+var transcribeservice = new TranscribeService({apiVersion: '2017-10-26'});
 var s3 = new S3Service();
 s3.config.region = "us-east-1";
 
@@ -97,15 +97,15 @@ class Transcribe extends Component {
     transcribeAudio() {
        
         let job = Math.random();
-        this.setState({transcriptionJobName: 'BYTECONF_' + job});
+        this.setState({transcriptionJobName: 'TRANSCRIBE_DEMO_JOB_' + job});
         var params = {
             LanguageCode: "en-US", /* required */
             Media: { /* required */
                 MediaFileUri: this.state.s3URL
             },
             MediaFormat: "wav", /* required */
-            TranscriptionJobName: this.state.transcriptionJobName,
-            OutputBucketName: "transcribe-output-js"
+            TranscriptionJobName: this.state.transcriptionJobName, /* required*/
+            //OutputBucketName: "transcribe-output-js"
             };
             transcribeservice.startTranscriptionJob(params, function(err, data) {
             if (err) console.log(err, err.stack); // an error occurred
@@ -114,7 +114,7 @@ class Transcribe extends Component {
             }         
         });
     }
-
+  /*
    givePublicAccessToTranscriptObject(key) {
 
     return new Promise((resolve, reject) => {
@@ -139,7 +139,8 @@ class Transcribe extends Component {
     })
       
     }
-
+    */
+    
     getTranscription() {
         this.setState({transcriptionJobComplete: true});
         var currentComponent = this;
@@ -157,8 +158,11 @@ class Transcribe extends Component {
                 }
                 else if(data.TranscriptionJob.TranscriptionJobStatus === 'COMPLETED'){
                   
+                  //let url = data.TranscriptionJob.Transcript.TranscriptFileUri
+                  //let key = url.replace('https://s3.amazonaws.com/transcribe-output-js/', '');
                   let url = data.TranscriptionJob.Transcript.TranscriptFileUri
-                  let key = url.replace('https://s3.amazonaws.com/transcribe-output-js/', '');
+                  //let key = url.replace('', '');
+                  let key = url
                   console.log(key);
                   currentComponent.givePublicAccessToTranscriptObject(key)
                     .then(data => {
@@ -212,7 +216,8 @@ class Transcribe extends Component {
             <div className="row text-left">
             <p><a href="https://aws.amazon.com/transcribe/" target="_blank" rel="noopener noreferrer">Amazon Transcribe</a> uses advanced machine learning technologies to recognize speech in audio files and transcribe them into text. You can use Amazon Transcribe to convert audio to text and to create applications that incorporate the content of audio files. For example, you can transcribe the audio track from a video recording to create closed captioning for the video.</p>
             <br></br>
-            <p>In this example, we're going to show how easy it is to record audio, upload it to <code>Amazon S3</code>, and use <code>Amazon Transcribe</code> to perform a transcription job.</p>
+            <p>In this example, we're going to show how easy it is to record audio, upload it to <code>Amazon S3</code>, and use <code>Amazon Transcribe</code> to perform a batch transcription job.</p>
+            <p>This demo doesn't include the realtime transcription functionality of <code>Amazon Transcribe</code>, but you can <a href="https://transcribe-websockets.go-aws.com/" target="_blank" rel="noopener noreferrer">find a demo that does here.</a></p>
             <p>
               <b>Methods:</b><br></br>
               <ul>
