@@ -157,7 +157,27 @@ class Transcribe extends Component {
                   }, 5000);
                 }
                 else if(data.TranscriptionJob.TranscriptionJobStatus === 'COMPLETED'){
+                  let url = data.TranscriptionJob.Transcript.TranscriptFileUri
+                  fetch(url)
+                    .then(response => {
+                      return response.json()
+                    })
+                    .then(data => {
+                      // Work with JSON data here
+                      console.log(data)
+                      currentComponent.setState({transcriptionJobComplete: false});
+                      console.log(data.results.transcripts[0].transcript);
+                      currentComponent.setState({transcription: data.results.transcripts[0].transcript})
+                    })
+                    .catch(err => {
+                      // Do something for an error here
+                    })
                   
+
+                  
+                  
+                  
+                  /*
                   //let url = data.TranscriptionJob.Transcript.TranscriptFileUri
                   //let key = url.replace('https://s3.amazonaws.com/transcribe-output-js/', '');
                   let url = data.TranscriptionJob.Transcript.TranscriptFileUri
@@ -181,7 +201,7 @@ class Transcribe extends Component {
 
                     })
                    
-                 
+                 */
                }
             }           
           });
