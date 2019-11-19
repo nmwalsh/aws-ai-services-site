@@ -114,13 +114,13 @@ class Transcribe extends Component {
             }         
         });
     }
-  /*
+  
    givePublicAccessToTranscriptObject(key) {
 
     return new Promise((resolve, reject) => {
       var params = { 
         ACL: 'public-read',
-        Bucket: "transcribe-output-js",
+        Bucket: "aws-transcribe-us-east-1-prod",
         Key: key
        };
       s3.putObjectAcl(params, function(err, data) {
@@ -139,8 +139,24 @@ class Transcribe extends Component {
     })
       
     }
-    */
     
+    /*
+    reqListener () {
+      console.log(this.responseText);
+    }*/
+
+    getS3Object(bucket, key){
+      var params = {
+        Bucket: bucket,
+        Key: key
+       };
+       s3.getObject(params, function(err, data) {
+         if (err) console.log(err, err.stack); // an error occurred
+         else     console.log(data);           // successful response*/
+       });
+
+    }
+
     getTranscription() {
         this.setState({transcriptionJobComplete: true});
         var currentComponent = this;
@@ -158,10 +174,31 @@ class Transcribe extends Component {
                 }
                 else if(data.TranscriptionJob.TranscriptionJobStatus === 'COMPLETED'){
                   let url = data.TranscriptionJob.Transcript.TranscriptFileUri
-                  fetch(url)
-                    .then(response => {
-                      return response.json()
-                    })
+                  let signedKey = url.split('https://s3.amazonaws.com/aws-transcribe-us-east-1-prod/')
+                  let bucket = "aws-transcribe-us-east-1-prod"
+                  let key = signedKey[1].split('?')[0]
+   
+                  // currentComponent.givePublicAccessToTranscriptObject(key).then(data => {
+                  //   currentComponent.getS3Object(bucket, key)
+                  // })
+
+                  let options = {
+                    mode: 'no-cors',
+                    method: 'GET'
+                  }
+                  
+                  var request = new XMLHttpRequest();
+                  //oReq.addEventListener("load", reqListener);
+                  request.open("GET", url);
+                  //request.setRequestHeader('X-PINGOTHER', 'pingpong');
+                  request.setRequestHeader('Access-Control-Allow-Origin', '*');
+                  request.setRequestHeader('Content-Type', 'application/xml');
+                  console.log(url)
+                  request.send();
+                  console.log(request);
+
+                  fetch(url, options)
+                    .then(response => console.log(response))
                     .then(data => {
                       // Work with JSON data here
                       console.log(data)
@@ -172,9 +209,6 @@ class Transcribe extends Component {
                     .catch(err => {
                       // Do something for an error here
                     })
-                  
-
-                  
                   
                   
                   /*
