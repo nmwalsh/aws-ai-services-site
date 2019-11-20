@@ -22,7 +22,8 @@ class Transcribe extends Component {
             transcriptionJobName: '',
             transcription:'',
             transcriptionJobComplete: false,
-            s3URL:''
+            s3URL:'',
+            outputURL:''
         }
         this.startRecord = this.startRecord.bind(this);
         this.stopRecord = this.stopRecord.bind(this);
@@ -174,14 +175,16 @@ class Transcribe extends Component {
                 }
                 else if(data.TranscriptionJob.TranscriptionJobStatus === 'COMPLETED'){
                   let url = data.TranscriptionJob.Transcript.TranscriptFileUri
-                  let signedKey = url.split('https://s3.amazonaws.com/aws-transcribe-us-east-1-prod/')
+                  let signedKey = url.split('https://s3.amazonaws.com/aws-transcribe-us-east-1-prod/')            
                   let bucket = "aws-transcribe-us-east-1-prod"
                   let key = signedKey[1].split('?')[0]
-   
+                  currentComponent.setState({outputURL: url});
+                  
                   // currentComponent.givePublicAccessToTranscriptObject(key).then(data => {
                   //   currentComponent.getS3Object(bucket, key)
                   // })
 
+                  /*
                   let options = {
                     mode: 'no-cors',
                     method: 'GET'
@@ -209,33 +212,8 @@ class Transcribe extends Component {
                     .catch(err => {
                       // Do something for an error here
                     })
-                  
-                  
-                  /*
-                  //let url = data.TranscriptionJob.Transcript.TranscriptFileUri
-                  //let key = url.replace('https://s3.amazonaws.com/transcribe-output-js/', '');
-                  let url = data.TranscriptionJob.Transcript.TranscriptFileUri
-                  //let key = url.replace('', '');
-                  let key = url
-                  console.log(key);
-                  currentComponent.givePublicAccessToTranscriptObject(key)
-                    .then(data => {
-                        //download data file
-                        console.log("ready to download json file")
-
-                        fetch(url)
-                          .then(response => response.json())
-                          .then(json => {
-                            currentComponent.setState({transcriptionJobComplete: false});
-                            console.log(json.results.transcripts[0].transcript);
-                            currentComponent.setState({transcription: json.results.transcripts[0].transcript})
-                          
-                          })
-                          .catch(error => console.log(`Failed because: ${error}`));
-
-                    })
-                   
-                 */
+                  */
+                
                }
             }           
           });
@@ -254,6 +232,7 @@ class Transcribe extends Component {
                             <span className="sr-only">Transcribing...</span>
                           </button>
         }
+        //let outputURL = <p><a href={this.state.outputURL} target="_blank" rel="noopener noreferrer">Transcription link</a></p>
         
         // Don't show record button if their browser doesn't support it.
         if (!stream) {
@@ -310,7 +289,9 @@ class Transcribe extends Component {
                     <div className="col-xs-12 step">
                     <h4>Transcription Result: </h4>
                     <br></br>
+                    <p><a href={this.state.outputURL} target="_blank" rel="noopener noreferrer">Transcription link</a></p>
                     <p>{this.state.transcription}</p>
+                    <br></br><br></br>
                     </div>
                 </div>
 
