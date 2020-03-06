@@ -22,6 +22,7 @@ class Transcribe extends Component {
             transcriptionJobName: '',
             transcription:'',
             transcriptionJobComplete: false,
+            transcriptionInProgress: false,
             s3URL:'',
             outputURL:''
         }
@@ -159,7 +160,7 @@ class Transcribe extends Component {
     }
 
     getTranscription() {
-        this.setState({transcriptionJobComplete: true});
+        //this.setState({transcriptionJobComplete: true});
         var currentComponent = this;
         var params = {
             TranscriptionJobName: this.state.transcriptionJobName /* required */
@@ -169,11 +170,15 @@ class Transcribe extends Component {
             else{    // successful response
                 console.log(data);
                 if(data.TranscriptionJob.TranscriptionJobStatus === 'IN_PROGRESS'){
+                  currentComponent.setState({transcriptionInProgress: true});
+                  currentComponent.setState({transcriptionJobComplete: false});
                   setTimeout(() => {
                     currentComponent.getTranscription();
                   }, 5000);
                 }
                 else if(data.TranscriptionJob.TranscriptionJobStatus === 'COMPLETED'){
+                  currentComponent.setState({transcriptionJobComplete: true});
+                  currentComponent.setState({transcriptionInProgress: false});
                   let url = data.TranscriptionJob.Transcript.TranscriptFileUri
                   let signedKey = url.split('https://s3.amazonaws.com/aws-transcribe-us-east-1-prod/')            
                   let bucket = "aws-transcribe-us-east-1-prod"
@@ -223,14 +228,18 @@ class Transcribe extends Component {
     render() {
         const { recording, stream } = this.state;
         let transcribeBtn;
-        if(!this.state.transcriptionJobComplete){
-          transcribeBtn =  <button className="btn btn-info" onClick={this.getTranscription}>Get Transcription</button>
-        }
-        else{
+        
+        if(this.state.transcriptionInProgress){
           transcribeBtn = <button className="btn btn-info" type="button" disabled>
                             <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                             <span className="sr-only">Transcribing...</span>
                           </button>
+        }
+        else if(this.state.transcriptionJobComplete){
+          transcribeBtn =  <button className="btn btn-info"><a href={this.state.outputURL} target="_blank" rel="noopener noreferrer">Transcription Ready! Click to Download</a></button>
+        }
+        else{
+          transcribeBtn =  <button className="btn btn-info" onClick={this.getTranscription}>Get Transcription</button>
         }
         //let outputURL = <p><a href={this.state.outputURL} target="_blank" rel="noopener noreferrer">Transcription link</a></p>
         
@@ -285,16 +294,6 @@ class Transcribe extends Component {
                     {transcribeBtn}
                   </div>
                 </div>
-                <div className="row">
-                    <div className="col-xs-12 step">
-                    <h4>Transcription Result: </h4>
-                    <br></br>
-                    <p><a href={this.state.outputURL} target="_blank" rel="noopener noreferrer">Transcription link</a></p>
-                    <p>{this.state.transcription}</p>
-                    <br></br><br></br>
-                    </div>
-                </div>
-
             </div>
             <Footer />
         </div>
