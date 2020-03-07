@@ -71,19 +71,46 @@ p {
 
 }
 .card {
+  height: 310px;
   width: 18rem;
   border: 2px solid #FF9900;
   background-color: #232F3E;
   margin:15px;
-
+  
   box-shadow: 0rem 0 1rem rgb(7, 5, 6);
   transition: 0.4s ease-out;
-  position: relative;
-  left: 0px;
+  /*position: relative;*/
+  /*left: 0px;*/
+
+  box-sizing: border-box;
+  display: inline-block;
+  float: none;
+  text-align:left;
 }
 
+.card + .card {
+  margin-left: 2%;
+}
+
+/*
 .card:not(:first-child) {
   margin-left: 20px;
+}
+*/
+.flex-container{
+  display: inline-block;
+  webkit-justify-content: center;
+  height:650px;
+  text-align: center;
+  padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .bar {
