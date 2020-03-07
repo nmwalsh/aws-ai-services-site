@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import GitHubButton from 'react-github-btn'
 import '../App.css';
+import * as THREE from "three";
 
 class Main extends Component {
 

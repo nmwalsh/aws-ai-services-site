@@ -33,13 +33,13 @@ dark navy: #161E2D
   position: absolute;
   /*background-size: 100% 900px;*/
   height:100%;
-  width:40%;
+  width:50%;
   top:0px;
-  left:95%;
+  left:80%;
   opacity: 0.5;
   z-index:-1;
-  margin: -50px auto 0 auto;
-
+  margin: 50 auto 0 auto;
+  overflow: hidden;
 }
 
 .hero img {
@@ -70,6 +70,14 @@ p {
   color: white;
 
 }
+
+canvas{
+  position: absolute;
+  top:0;
+  left:0;
+  z-index:-1;
+}
+
 .card {
   height: 310px;
   width: 18rem;
@@ -98,9 +106,7 @@ p {
 }
 */
 .flex-container{
-  display: inline-block;
   webkit-justify-content: center;
-  height:650px;
   text-align: center;
   padding: 0;
     margin: 0;
@@ -197,9 +203,10 @@ code {
 .footer {
   left:0px;
   bottom:0px;
-  margin-top:75px;
+  margin-top:70px;
   width:100%;
   background:#161E2D;
+  position: inline-block;
 }
 
 .footer p{
