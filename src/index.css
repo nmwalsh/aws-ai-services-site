@@ -79,7 +79,7 @@ canvas{
 }
 
 .card {
-  height: 310px;
+  /*height: 310px;*/
   width: 18rem;
   border: 2px solid #FF9900;
   background-color: #232F3E;
