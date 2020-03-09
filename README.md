@@ -1,68 +1,63 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# AWS AI Service Demos
 
-## Available Scripts
+Try out various AI services from AWS, no code or account required. 
 
-In the project directory, you can run:
+<img src="etc/thumbnail.png" width="650"/>
 
-### `npm start`
+Demo site hosted at [https://ai-service-demos.go-aws.com]()
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Included examples:
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+All components available in `src/components/`
 
-### `npm test`
+- [Amazon Transcribe](https://ai-service-demos.go-aws.com/transcribe)
+    - `Transcribe.js`: Batch async transcription job for custom audio
+- [Amazon Polly](https://ai-service-demos.go-aws.com/polly)
+    - `Polly.js`: Text to speech with standard or neural voice engine across all available languages
+- [Amazon Comprehend](https://ai-service-demos.go-aws.com/comprehend)
+    - `Comprehend.js`: Sentiment, Entity, Key Phrase, and Syntax Token detection
+- [Amazon Rekognition](https://ai-service-demos.go-aws.com/rekognition)
+    - `Rekognition.js`: Object detection
+- [Amazon Translate](https://ai-service-demos.go-aws.com/translate)
+    - `Translate.js`: Text to text translate
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installing
 
-### `npm run build`
+To run/test locally:
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`npm install`
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+`npm start`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`https://localhost:3000`
 
-### `npm run eject`
+## AWS AI Service Free Tiers
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The services covered in this demo all have very generous free tiers. At a glance:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+| Service            | Description                    | Quantity                       | 
+|--------------------|--------------------------------|--------------------------------|
+| Amazon Translate   | Text-Text Translation          | 2 million characters/month     |
+| Amazon Polly       | Text to Speech                 | 5 million characters/month     |
+| Amazon Comprehend  | Natural Language Understanding | 5 million characters/API/month | 
+| Amazon Rekognition | Computer Vision                | 5k images/month                | 
+| Amazon Transcribe  | Audio to Text Transcription    | 60 minutes/month               |  
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+For the most up-to-date info on free tier status, check out [the live pricing page here](https://aws.amazon.com/free/).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Built With
 
-## Learn More
+* [AWS AI Services](https://aws.amazon.com/machine-learning/ai-services/) - Fully managed AI services, on a pay-per-use model.
+* [AWS Amplify](https://aws.amazon.com/amplify/) - Development toolchain for building and deploying webapps
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Contributing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Have functionality you'd like to see, or a new AI service you want a demo for? Ping me on Twitter ([@TheNickWalsh](https://twitter.com/thenickwalsh)] or open an issue here.
 
-### Code Splitting
+## License
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-### Analyzing the Bundle Size
+## Acknowledgments
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* Thanks to [Nicki Stone](https://twitter.com/kneekey23) for the late night javascript help
