@@ -4,7 +4,7 @@ Try out various AI services from AWS, no code or account required.
 
 <img src="etc/thumbnail.png" width="650"/>
 
-Demo site hosted at [https://ai-service-demos.go-aws.com]()
+Demo site hosted at [https://ai-service-demos.go-aws.com](https://ai-service-demos.go-aws.com)
 
 ### Included examples:
 
