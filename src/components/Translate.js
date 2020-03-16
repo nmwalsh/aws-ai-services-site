@@ -99,9 +99,9 @@ class Translate extends Component {
                   <h4>Step 1: Enter Text</h4>
                   <form>
                       <div className="form-group">
-                          <input type="text" className="form-control" value={this.state.text} onChange={this.onChangeText} placeholder="Enter the text for Translate to analyze!"/>
+                          <textarea className="form-control" rows="5"value={this.state.text} onChange={this.onChangeText} placeholder="Enter the text for Translate to analyze!"/>
                       </div>
-                    </form>
+                  </form>
                   </div>
                   <div className="col-md-4">
                     <h4>Step 2: Choose Languages</h4>
