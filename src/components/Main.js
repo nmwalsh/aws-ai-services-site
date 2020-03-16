@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import GitHubButton from 'react-github-btn'
+import Footer from '../utilities/footer';
 import '../App.css';
 import * as THREE from "three";
 
@@ -130,7 +131,7 @@ class Main extends Component {
                         */}
                     </div>
                     <div className="footer text-center">
-                        <p>&copy; {new Date().getFullYear()} Amazon Web Services, Inc. or its affiliates. All rights reserved. <br></br> Made with ♥ by <a href="https://twitter.com/thenickwalsh" target="_blank" rel="noopener noreferrer">Nick Walsh</a> and <a href="https://twitter.com/kneekey23" target="_blank" rel="noopener noreferrer">Nicki Stone</a></p>
+                        <p>Made with ♥ by <a href="https://twitter.com/thenickwalsh" target="_blank" rel="noopener noreferrer">Nick Walsh</a> and <a href="https://twitter.com/kneekey23" target="_blank" rel="noopener noreferrer">Nicki Stone</a></p>
                      </div>
                             
         </div>)
