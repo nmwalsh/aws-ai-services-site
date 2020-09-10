@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import GitHubButton from 'react-github-btn'
 import Footer from '../utilities/footer';
 import '../App.css';
-import * as THREE from "three";
+//import * as THREE from "three";
 
 class Main extends Component {
 
@@ -129,10 +129,10 @@ class Main extends Component {
                             </div>
                     </div>
                         */}
-                    </div>
+                    </div>       
                     <div className="footer text-center">
-                        <p>Made with ♥ by <a href="https://twitter.com/thenickwalsh" target="_blank" rel="noopener noreferrer">Nick Walsh</a> and <a href="https://twitter.com/kneekey23" target="_blank" rel="noopener noreferrer">Nicki Stone</a></p>
-                     </div>
+                        <Footer></Footer>
+                    </div>
                             
         </div>)
     }
