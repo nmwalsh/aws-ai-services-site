@@ -20,6 +20,10 @@ class Comprehend extends Component {
             resultSyntaxMessage: '',
             resultKeyPhrases: [],
             resultKeyPhrasesMessage: [],
+            resultContainsPiiEntitiesMessage: '',
+            resultContainsPiiEntities: [],
+            resultDetectPiiEntitiesMessage: '',
+            resultDetectPiiEntities: [],
         }
         this.onChangeText = this.onChangeText.bind(this);
         this.sendTextToComprehend = this.sendTextToComprehend.bind(this);
@@ -41,7 +45,7 @@ class Comprehend extends Component {
         var comprehend = new AWS.Comprehend({apiVersion: '2017-11-27'});
         let currentComponent = this;
 
-        // call detectSentiment endpoint
+        // Detect Sentiment
         if (!!comprehendParams.Text){ 
         comprehend.detectSentiment(comprehendParams, function (err, data){
             if (err) {
@@ -57,7 +61,7 @@ class Comprehend extends Component {
             document.getElementById("chck1").checked = true;
         });
         
-        // Entities[i] .text, .type, .score
+        // Detect Entities -- Entities[i] .text, .type, .score
         comprehend.detectEntities(comprehendParams, function (err, data){
           if (err) {
               currentComponent.setState({resultEntitiesMessage: err.message});
@@ -71,7 +75,7 @@ class Comprehend extends Component {
           document.getElementById("chck2").checked = true;
         });
         
-          
+          // Detect Syntax -- Entities[i] .text, .type, .score
           comprehend.detectSyntax(comprehendParams, function (err, data){
             if (err) {
                 currentComponent.setState({resultSyntaxMessage: err.message});
@@ -84,7 +88,7 @@ class Comprehend extends Component {
             document.getElementById("chck3").checked = true;
           });
 
-          //KeyPhrases[n] .Text, .Score
+          //Detect Key Phrases -- KeyPhrases[n] .Text, .Score
           comprehend.detectKeyPhrases(comprehendParams, function (err, data){
           if (err) {
               currentComponent.setState({resultKeyPhrasesMessage: err.message});
@@ -96,12 +100,40 @@ class Comprehend extends Component {
           }
           document.getElementById("chck4").checked = true;
           });
+
+          //Check if text contains PII entities, return types
+          comprehend.containsPiiEntities(comprehendParams, function (err, data){
+            if (err) {
+                currentComponent.setState({resultContainsPiiEntitiesMessage: err.message});
+                currentComponent.setState({resultContainsPiiEntities: ""});
+                currentComponent.setState({resultContainsPiiEntitiesScore: ""});
+            }
+            else {
+                currentComponent.setState({resultContainsPiiEntitiesMessage: ">>> Contains PII operation complete!"});
+                currentComponent.setState({resultContainsPiiEntities: JSON.stringify(data.Labels)});
+            }
+            document.getElementById("chck5").checked = true;
+        });
+
+          //Detect particular instances of PII entities, return locations, types, score
+          comprehend.detectPiiEntities(comprehendParams, function (err, data){
+            if (err) {
+                currentComponent.setState({resultDetectPiiEntitiesMessage: err.message});
+                currentComponent.setState({resultDetectPiiEntities: ""});
+                //currentComponent.setState({resultDetectPiiEntitiesScore: ""});
+            }
+            else {
+                currentComponent.setState({resultDetectPiiEntitiesMessage: ">>> Detect PII operation complete!"});
+                currentComponent.setState({resultDetectPiiEntities: JSON.stringify(data.Entities)});
+            }
+            document.getElementById("chck6").checked = true;
+        });
     }
   }
 
 
     render() {
-        let sentimentStatus, sentiment, sentimentScore, entities, entitiesStatus, syntax, syntaxStatus, keyPhrases, keyPhrasesStatus;
+        let sentimentStatus, sentiment, sentimentScore, entities, entitiesStatus, syntax, syntaxStatus, keyPhrases, keyPhrasesStatus, containsPiiStatus, piiEntityLabels, detectPiiStatus, piiEntities;
         if(this.state.resultMessage !== ''){
           sentimentStatus = <p>{this.state.resultSentimentMessage}</p>
           sentiment = <code>{this.state.resultSentiment}</code> 
@@ -115,6 +147,12 @@ class Comprehend extends Component {
 
           keyPhrasesStatus = <p>{this.state.resultKeyPhrasesMessage}</p> 
           keyPhrases = <code>{this.state.resultKeyPhrases}</code>
+
+          containsPiiStatus = <p>{this.state.resultContainsPiiEntitiesMessage}</p>
+          piiEntityLabels = <code>{this.state.resultContainsPiiEntities}</code>
+
+          detectPiiStatus = <p>{this.state.resultDetectPiiEntitiesMessage}</p>
+          piiEntities = <code>{this.state.resultDetectPiiEntities}</code>
         }
         return (
           <div className="App">
@@ -126,7 +164,7 @@ class Comprehend extends Component {
                 </div>
                 <div class="titlebar"></div> 
                 <div className="row text-left">
-                <p><a href="https://aws.amazon.com/comprehend/" target="_blank" rel="noopener noreferrer">Amazon Comprehend</a> uses natural language processing (NLP) to extract insights about the content of documents. Amazon Comprehend processes any text file in UTF-8 format. It develops insights by recognizing the entities, key phrases, language, sentiments, and other common elements in a document. Use Amazon Comprehend to create new products based on understanding the structure of documents. For example, using Amazon Comprehend you can search social networking feeds for mentions of products or scan an entire document repository for key phrases.</p>
+                <p><a href="https://aws.amazon.com/comprehend/" target="_blank" rel="noopener noreferrer">Amazon Comprehend</a> uses natural language processing (NLP) to extract insights about the content of documents. Amazon Comprehend processes any text file in UTF-8 format. It develops insights by recognizing the entities, key phrases, language, sentiments, PII (personally identifiable information), and other common elements in a document. Use Amazon Comprehend to create new products based on understanding the structure of documents. For example, using Amazon Comprehend you can search social networking feeds for mentions of products or scan an entire document repository for key phrases.</p>
                 <p>In this example, we're going to show how easy it is to send text to <code>Amazon Comprehend</code> to understand text sentiment, identify entities and key phrases, and assess syntax tokens.</p>
                 <p>
                   <b>Methods:</b>
@@ -136,6 +174,7 @@ class Comprehend extends Component {
                     <li><code><a href="https://docs.aws.amazon.com/comprehend/latest/dg/get-started-api-entities.html" target="_blank" rel="noopener noreferrer">detectEntities()</a></code></li>
                     <li><code><a href="https://docs.aws.amazon.com/comprehend/latest/dg/get-started-api-key-phrases.html" target="_blank" rel="noopener noreferrer">detectKeyPhrases()</a></code></li>
                     <li><code><a href="https://docs.aws.amazon.com/comprehend/latest/dg/get-started-api-syntax.html" target="_blank" rel="noopener noreferrer">detectSyntax()</a></code></li>
+                    <li><code><a href="https://docs.aws.amazon.com/comprehend/latest/dg/get-started-api-pii.html" target="_blank" rel="noopener noreferrer">containsPiiEntities(), detectPiiEntities()</a></code></li>
                 </p>
               </div>
               <div className="row">
@@ -181,6 +220,20 @@ class Comprehend extends Component {
                           <label class="tab-label" htmlFor="chck4">Syntax Tokens</label>
                           <div class="tab-content">
                             {syntax}
+                          </div>
+                        </div>
+                        <div class="tab">
+                          <input hidden type="checkbox" id="chck5"/>
+                          <label class="tab-label" htmlFor="chck5">PII Types in Passage</label>
+                          <div class="tab-content">
+                            {piiEntityLabels}
+                          </div>
+                        </div>
+                        <div class="tab">
+                          <input hidden type="checkbox" id="chck6"/>
+                          <label class="tab-label" htmlFor="chck6">Detect PII Entities</label>
+                          <div class="tab-content">
+                            {piiEntities}
                           </div>
                         </div>
                       </div>

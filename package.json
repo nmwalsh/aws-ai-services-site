@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "aws-sdk": "^2.518.0",
+    "aws-sdk": "^2.868.0",
     "bootstrap": "^4.3.1",
     "data-uri-to-buffer": "^2.0.0",
     "jquery": "^3.5.0",
