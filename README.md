@@ -16,6 +16,8 @@ All components available in `src/components/`
     - `Polly.js`: Text to speech with standard or neural voice engine across all available languages
 - [Amazon Comprehend](https://ai-service-demos.go-aws.com/comprehend)
     - `Comprehend.js`: Sentiment, Entity, Key Phrase, and Syntax Token detection
+- [Amazon Comprehend Medical](https://ai-service-demos.go-aws.com/comprehend-medical)
+    - `ComprehendMedical.js`: Entity and Personal Health Information (PHI) detection
 - [Amazon Rekognition](https://ai-service-demos.go-aws.com/rekognition)
     - `Rekognition.js`: Object detection
 - [Amazon Translate](https://ai-service-demos.go-aws.com/translate)
@@ -35,13 +37,14 @@ To run/test locally:
 
 The services covered in this demo all have very generous free tiers. At a glance:
 
-| Service            | Description                    | Quantity                       | 
-|--------------------|--------------------------------|--------------------------------|
-| Amazon Translate   | Text-Text Translation          | 2 million characters/month     |
-| Amazon Polly       | Text to Speech                 | 5 million characters/month     |
-| Amazon Comprehend  | Natural Language Understanding | 5 million characters/API/month | 
-| Amazon Rekognition | Computer Vision                | 5k images/month                | 
-| Amazon Transcribe  | Audio to Text Transcription    | 60 minutes/month               |  
+| Service                   | Description                    | Quantity                         | 
+|---------------------------|--------------------------------|----------------------------------|
+| Amazon Translate          | Text-Text Translation          | 2 million characters/month       |
+| Amazon Polly              | Text to Speech                 | 5 million characters/month       |
+| Amazon Comprehend         | Natural Language Understanding | 5 million characters/API/month   | 
+| Amazon Comprehend Medical | Natural Language Understanding | 8.5 million characters/API/month |
+| Amazon Rekognition        | Computer Vision                | 5k images/month                  | 
+| Amazon Transcribe         | Audio to Text Transcription    | 60 minutes/month                 |  
 
 For the most up-to-date info on free tier status, check out [the live pricing page here](https://aws.amazon.com/free/).
 
