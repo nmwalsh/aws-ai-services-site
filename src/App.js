@@ -8,7 +8,7 @@ import Comprehend from './components/Comprehend';
 import Rekognition from './components/Rekognition';
 import Translate from './components/Translate';
 //import NavBar from './utilities/navbar';
-//import Textract from './components/Textract';
+import Textract from './components/Textract';
 
 class App extends Component {
 
@@ -20,6 +20,7 @@ class App extends Component {
       <Route path='/comprehend' component={Comprehend}/>
       <Route path='/rekognition' component={Rekognition} />
       <Route path='/translate' component={Translate} />
+      <Route path='/textract' component={Textract} />
     </Switch>
     )
   }
