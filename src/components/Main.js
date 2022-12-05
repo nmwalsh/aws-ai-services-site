@@ -100,6 +100,19 @@ class Main extends Component {
                                     <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is.html" target="_blank" rel="noopener noreferrer" className="btn btn-info">Docs</a>
                                 </div>
                             </div>
+                            <div className="card">
+                                <div className="card-body">
+                                    <h5 className="card-title">Amazon Textract</h5>
+                                    <div class="bar">
+                                        <div class="emptybar"></div>
+                                        <div class="filledbar"></div>
+                                    </div>
+                                    <p className="card-text">Amazon Textract is an AI service that delivers fast, high-quality, and affordable OCR, with the ability to autodetect text language.</p>
+                                    <br></br>
+                                    <a href="/textract" className="btn btn-info">Try Textract</a>
+                                    <a href="https://docs.aws.amazon.com/textract/latest/dg/what-is.html" target="_blank" rel="noopener noreferrer" className="btn btn-info">Docs</a>
+                                </div>
+                            </div>
                         </div>
                         {/*
                         <div className="row">
