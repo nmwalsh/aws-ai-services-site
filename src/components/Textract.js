@@ -58,7 +58,7 @@ class Textract extends Component {
 					  //Bytes: fileByteArray
 					  // Alternatively, you can provide an S3 object 
 					  S3Object: {
-						Bucket: "awsramji-s3-monkey",
+						Bucket: "textract-input-tool",
 						Name: "test-textract"
 					  }
 					},
