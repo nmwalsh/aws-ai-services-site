@@ -100,6 +100,10 @@ canvas{
   margin-left: 2%;
 }
 
+.card:last-child {
+  margin-bottom: 25px;
+}
+
 /*
 .card:not(:first-child) {
   margin-left: 20px;
