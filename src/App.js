@@ -5,6 +5,7 @@ import Polly from './components/Polly';
 import Transcribe from './components/Transcribe';
 import Main from './components/Main';
 import Comprehend from './components/Comprehend';
+import ComprehendMedical from './components/ComprehendMedical';
 import Rekognition from './components/Rekognition';
 import Translate from './components/Translate';
 //import NavBar from './utilities/navbar';
@@ -18,6 +19,7 @@ class App extends Component {
       <Route path='/polly' component={Polly}/>
       <Route path='/transcribe' component={Transcribe}/>
       <Route path='/comprehend' component={Comprehend}/>
+      <Route path='/comprehend-medical' component={ComprehendMedical}/>
       <Route path='/rekognition' component={Rekognition} />
       <Route path='/translate' component={Translate} />
       <Route path='/textract' component={Textract} />

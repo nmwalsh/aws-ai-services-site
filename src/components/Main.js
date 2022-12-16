@@ -76,6 +76,19 @@ class Main extends Component {
                             </div>
                             <div className="card">
                                 <div className="card-body">
+                                    <h5 className="card-title">Amazon Comprehend Medical</h5>
+                                    <div class="bar">
+                                        <div class="emptybar"></div>
+                                        <div class="filledbar"></div>
+                                    </div>
+                                    <p className="card-text">Amazon Comprehend Medical is a HIPAA-eligible natural language processing (NLP) service that uses machine learning that has been pre-trained to understand and extract health data from medical text, such as prescriptions, procedures, or diagnoses.</p>
+                                    <br></br>
+                                    <a href="/comprehend-medical" className="btn btn-info">Try Comprehend Medical</a>
+                                    <a href="https://docs.aws.amazon.com/comprehend-medical/latest/dev/comprehendmedical-welcome.html" target="_blank" rel="noopener noreferrer" className="btn btn-info">Docs</a>
+                                </div>
+                            </div>
+                            <div className="card">
+                                <div className="card-body">
                                     <h5 className="card-title">Amazon Rekognition</h5>
                                     <div class="bar">
                                         <div class="emptybar"></div>
