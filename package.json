@@ -16,7 +16,7 @@
     "react-github-btn": "^1.1.1",
     "react-mic": "^12.4.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.5",
+    "react-scripts": "5.0.1",
     "react-simple-card": "^2.0.2",
     "react-webcam": "^1.1.1",
     "recorder-js": "^1.0.7",
