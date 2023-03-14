@@ -76,19 +76,6 @@ class Main extends Component {
                             </div>
                             <div className="card">
                                 <div className="card-body">
-                                    <h5 className="card-title">Amazon Comprehend Medical</h5>
-                                    <div class="bar">
-                                        <div class="emptybar"></div>
-                                        <div class="filledbar"></div>
-                                    </div>
-                                    <p className="card-text">Amazon Comprehend Medical is a HIPAA-eligible natural language processing (NLP) service that uses machine learning that has been pre-trained to understand and extract health data from medical text, such as prescriptions, procedures, or diagnoses.</p>
-                                    <br></br>
-                                    <a href="/comprehend-medical" className="btn btn-info">Try Comprehend Medical</a>
-                                    <a href="https://docs.aws.amazon.com/comprehend-medical/latest/dev/comprehendmedical-welcome.html" target="_blank" rel="noopener noreferrer" className="btn btn-info">Docs</a>
-                                </div>
-                            </div>
-                            <div className="card">
-                                <div className="card-body">
                                     <h5 className="card-title">Amazon Rekognition</h5>
                                     <div class="bar">
                                         <div class="emptybar"></div>
@@ -111,19 +98,6 @@ class Main extends Component {
                                     <br></br>
                                     <a href="/translate" className="btn btn-info">Try Translate</a>
                                     <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is.html" target="_blank" rel="noopener noreferrer" className="btn btn-info">Docs</a>
-                                </div>
-                            </div>
-                            <div className="card">
-                                <div className="card-body">
-                                    <h5 className="card-title">Amazon Textract</h5>
-                                    <div class="bar">
-                                        <div class="emptybar"></div>
-                                        <div class="filledbar"></div>
-                                    </div>
-                                    <p className="card-text">Amazon Textract is an AI service that delivers fast, high-quality, and affordable OCR, with the ability to autodetect text language.</p>
-                                    <br></br>
-                                    <a href="/textract" className="btn btn-info">Try Textract</a>
-                                    <a href="https://docs.aws.amazon.com/textract/latest/dg/what-is.html" target="_blank" rel="noopener noreferrer" className="btn btn-info">Docs</a>
                                 </div>
                             </div>
                         </div>
