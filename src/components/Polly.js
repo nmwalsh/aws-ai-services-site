@@ -91,6 +91,9 @@ class Polly extends Component {
           return (
             <div className="App">
               <NavBar/>
+              <div className="defunct-banner">
+                This demo site is no longer operational. To try out the latest capabilities, please visit the respective service demo within the AWS Console.
+              </div>
                <div className="container">
                  <div className="content-wrap">
                <div className="row text-left">

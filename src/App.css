@@ -44,3 +44,14 @@
 .stepInstructions {
   padding-top: 20px;
 }
+
+.defunct-banner {
+  background-color: #FF7F50; /* Coral red */
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-weight: bold;
+  width: 100%;
+  margin: 0;
+  font-size: 16px;
+}
