@@ -8,6 +8,9 @@ class Main extends Component {
 
     render() {
         return(<div className="container">
+                    <div className="defunct-banner">
+                        This demo site is no longer operational. To try out the latest capabilities, please visit the respective service demo within the AWS Console.
+                    </div>
                     <div className="bg-pattern"></div>
                     <div className="hero">
                         <div className="row">
